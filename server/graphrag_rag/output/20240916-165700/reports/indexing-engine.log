@@ -1,0 +1,941 @@
+16:57:00,688 graphrag.index.cli INFO Logging enabled at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-165700/reports/indexing-engine.log
+16:57:00,691 graphrag.index.cli INFO Starting pipeline run for: 20240916-165700, dryrun=False
+16:57:00,692 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "llama-3.1-8b-instant",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://api.groq.com/openai/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 20000,
+        "requests_per_minute": 30,
+        "max_retries": 3,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag",
+    "reporting": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-165700/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-165700/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 1000,
+        "max_input_length": 4000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+16:57:00,693 graphrag.index.create_pipeline_config INFO skipping workflows 
+16:57:00,693 graphrag.index.run.run INFO Running pipeline
+16:57:00,693 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-165700/artifacts
+16:57:00,694 graphrag.index.input.load_input INFO loading input from root_dir=input
+16:57:00,694 graphrag.index.input.load_input INFO using file storage for input
+16:57:00,694 graphrag.index.storage.file_pipeline_storage INFO search /Users/linussoderberg/chatbot/server/graphrag_rag/input for files matching .*\.txt$
+16:57:00,694 graphrag.index.input.text INFO found text files from input, found [('frankenstein.txt', {})]
+16:57:00,697 graphrag.index.input.text INFO Found 1 files, loading 1
+16:57:00,706 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+16:57:00,707 graphrag.index.run.run INFO Final # of rows loaded: 1
+16:57:00,861 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+16:57:00,862 datashaper.workflow.workflow INFO executing verb orderby
+16:57:00,873 datashaper.workflow.workflow INFO executing verb zip
+16:57:00,878 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:57:00,892 datashaper.workflow.workflow INFO executing verb chunk
+16:57:01,250 datashaper.workflow.workflow INFO executing verb select
+16:57:01,257 datashaper.workflow.workflow INFO executing verb unroll
+16:57:01,269 datashaper.workflow.workflow INFO executing verb rename
+16:57:01,270 datashaper.workflow.workflow INFO executing verb genid
+16:57:01,280 datashaper.workflow.workflow INFO executing verb unzip
+16:57:01,283 datashaper.workflow.workflow INFO executing verb copy
+16:57:01,284 datashaper.workflow.workflow INFO executing verb filter
+16:57:01,305 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+16:57:01,535 graphrag.index.run.workflow INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+16:57:01,536 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+16:57:01,583 datashaper.workflow.workflow INFO executing verb entity_extract
+16:57:01,595 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=https://api.groq.com/openai/v1
+16:57:01,654 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for llama-3.1-8b-instant: TPM=20000, RPM=30
+16:57:01,654 graphrag.index.llm.load_llm INFO create concurrency limiter for llama-3.1-8b-instant: 25
+16:57:04,950 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:04,956 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.1912553710862994. input_tokens=34, output_tokens=1216
+16:57:06,296 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:06,300 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.509448750992306. input_tokens=34, output_tokens=1523
+16:57:06,682 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:06,686 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.8867301950231194. input_tokens=34, output_tokens=1089
+16:57:07,1 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:07,5 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.23601473798044. input_tokens=34, output_tokens=1827
+16:57:07,715 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:07,721 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.937434986000881. input_tokens=34, output_tokens=2917
+16:57:08,88 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:08,719 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+16:57:08,729 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:08,730 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:09,246 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+16:57:09,247 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:09,249 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:10,98 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:10,100 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:10,100 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:10,116 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:11,184 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+16:57:11,185 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:11,976 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:12,195 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:12,197 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:12,197 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:12,587 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+16:57:12,589 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:12,764 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:12,813 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:12,840 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:13,244 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:13,743 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 6.3062885999679565. input_tokens=34, output_tokens=1675
+16:57:13,974 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:14,684 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:15,745 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 6.929256552015431. input_tokens=34, output_tokens=1704
+16:57:15,864 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:16,563 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:16,913 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:17,747 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 7.457904240000062. input_tokens=34, output_tokens=1409
+16:57:18,157 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:19,199 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:19,748 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 8.347735663992353. input_tokens=34, output_tokens=1242
+16:57:19,947 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:20,721 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:21,632 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+16:57:22,24 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:22,25 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:22,25 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:24,4 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:24,6 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:24,7 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:25,767 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 10.24202557199169. input_tokens=34, output_tokens=1705
+16:57:28,188 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:28,191 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:28,191 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:30,27 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:30,28 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:30,29 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:31,787 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 10.95595979609061. input_tokens=34, output_tokens=1189
+16:57:33,789 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.009618940996006. input_tokens=34, output_tokens=2161
+16:57:35,792 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.49223641701974. input_tokens=34, output_tokens=1516
+16:57:38,143 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:38,150 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:38,150 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:40,93 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:40,100 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:40,100 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:41,813 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.938461447018199. input_tokens=34, output_tokens=1626
+16:57:43,815 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.874648435972631. input_tokens=34, output_tokens=817
+16:57:45,818 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.822207281016745. input_tokens=34, output_tokens=1355
+16:57:48,144 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:48,145 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:48,145 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:48,145 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 130123, Requested 3893. Please try again in 5m42.05s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:57:48,161 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'of my own country; I have visited the lakes of Lucerne and Uri, where the\nsnowy mountains descend almost perpendicularly to the water, casting black\nand impenetrable shades, which would cause a gloomy and mournful appearance\nwere it not for the most verdant islands that relieve the eye by their gay\nappearance; I have seen this lake agitated by a tempest, when the wind tore\nup whirlwinds of water and gave you an idea of what the water-spout must be\non the great ocean; and the waves dash with fury the base of the mountain,\nwhere the priest and his mistress were overwhelmed by an avalanche and\nwhere their dying voices are still said to be heard amid the pauses of the\nnightly wind; I have seen the mountains of La Valais, and the Pays de Vaud;\nbut this country, Victor, pleases me more than all those wonders. The\nmountains of Switzerland are more majestic and strange, but there is a\ncharm in the banks of this divine river that I never before saw equalled.\nLook at that castle which overhangs yon precipice; and that also on the\nisland, almost concealed amongst the foliage of those lovely trees; and now\nthat group of labourers coming from among their vines; and that village\nhalf hid in the recess of the mountain. Oh, surely the spirit that inhabits\nand guards this place has a soul more in harmony with man than those who\npile the glacier or retire to the inaccessible peaks of the mountains of\nour own country.”\n\nClerval! Beloved friend! Even now it delights me to record your words and\nto dwell on the praise of which you are so eminently deserving. He was a\nbeing formed in the “very poetry of nature.” His wild and\nenthusiastic imagination was chastened by the sensibility of his heart. His\nsoul overflowed with ardent affections, and his friendship was of that\ndevoted and wondrous nature that the worldly-minded teach us to look for only\nin the imagination. But even human sympathies were not sufficient to\nsatisfy his eager mind. The scenery of external nature, which others regard\nonly with admiration, he loved with ardour:—\n\n    ——The sounding cataract\n    Haunted him like a passion: the tall rock,\n    The mountain, and the deep and gloomy wood,\n    Their colours and their forms, were then to him\n    An appetite; a feeling, and a love,\n    That had no need of a remoter charm,\n    By thought supplied, or any interest\n    Unborrow’d from the eye.\n\n          [Wordsworth’s “Tintern Abbey”.]\n\nAnd where does he now exist? Is this gentle and lovely being lost\nfor ever? Has this mind, so replete with ideas, imaginations fanciful\nand magnificent, which formed a world, whose existence depended on the\nlife of its creator;—has this mind perished? Does it now only exist\nin my memory? No, it is not thus; your form so divinely wrought, and\nbeaming with beauty, has decayed, but your spirit still visits and\nconsoles your unhappy friend.\n\nPardon this gush of sorrow; these ineffectual words are but a slight\ntribute to the unexampled worth of Henry, but they soothe my heart,\noverflowing with the anguish which his remembrance creates. I will\nproceed with my tale.\n\nBeyond Cologne we descended to the plains of Holland; and we resolved to\npost the remainder of our way, for the wind was contrary and the stream of\nthe river was too gentle to aid us.\n\nOur journey here lost the interest arising from beautiful scenery, but we\narrived in a few days at Rotterdam, whence we proceeded by sea to England.\nIt was on a clear morning, in the latter days of December, that I first saw\nthe white cliffs of Britain. The banks of the Thames presented a new scene;\nthey were flat but fertile, and almost every town was marked by the\nremembrance of some story. We saw Tilbury Fort and remembered the Spanish\nArmada, Gravesend, Woolwich, and Greenwich—places which I had heard\nof even in my country.\n\nAt length we saw the numerous steeples of London, St. Paul’s towering\nabove all, and the Tower famed in English history.\n\n\n\n\nChapter 19\n\n\nLondon was our present point of rest; we determined to remain several\nmonths in this wonderful and celebrated city. Clerval desired the\nintercourse of the men of genius and talent who flourished at this\ntime, but this was with me a secondary object; I was principally\noccupied with the means of obtaining the information necessary for the\ncompletion of my promise and quickly availed myself of the letters of\nintroduction that I had brought with me, addressed to the most\ndistinguished natural philosophers.\n\nIf this journey had taken place during my days of study and happiness,\nit would have afforded me inexpressible pleasure. But a blight had\ncome over my existence, and I only visited these people for the sake of\nthe information they might give me on the subject in which my interest\nwas so terribly profound. Company was irksome to me; when alone, I\ncould fill my mind with the sights of heaven and earth; the voice of\nHenry soothed me, and I could thus cheat myself into a transitory\npeace. But busy, uninteresting, joyous faces brought back despair to\nmy heart. I saw an insurmountable barrier placed between me and my\nfellow men; this barrier was sealed with the blood of William and\nJustine, and to reflect on the events connected with those names filled\nmy soul'}
+16:57:50,181 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:50,182 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:50,182 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:50,182 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 129440, Requested 3591. Please try again in 5m39.094s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:57:50,183 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'irretrievable, and after much consideration I resolved to return to the\ncottage, seek the old man, and by my representations win him to my\nparty.\n\n“These thoughts calmed me, and in the afternoon I sank into a profound\nsleep; but the fever of my blood did not allow me to be visited by\npeaceful dreams. The horrible scene of the preceding day was for ever\nacting before my eyes; the females were flying and the enraged Felix\ntearing me from his father’s feet. I awoke exhausted, and finding that\nit was already night, I crept forth from my hiding-place, and went in\nsearch of food.\n\n“When my hunger was appeased, I directed my steps towards the\nwell-known path that conducted to the cottage. All there was at peace.\nI crept into my hovel and remained in silent expectation of the\naccustomed hour when the family arose. That hour passed, the sun\nmounted high in the heavens, but the cottagers did not appear. I\ntrembled violently, apprehending some dreadful misfortune. The inside\nof the cottage was dark, and I heard no motion; I cannot describe the\nagony of this suspense.\n\n“Presently two countrymen passed by, but pausing near the cottage, they\nentered into conversation, using violent gesticulations; but I did not\nunderstand what they said, as they spoke the language of the country,\nwhich differed from that of my protectors. Soon after, however, Felix\napproached with another man; I was surprised, as I knew that he had not\nquitted the cottage that morning, and waited anxiously to discover from\nhis discourse the meaning of these unusual appearances.\n\n“‘Do you consider,’ said his companion to him,\n‘that you will be obliged to pay three months’ rent and to lose\nthe produce of your garden? I do not wish to take any unfair advantage, and\nI beg therefore that you will take some days to consider of your\ndetermination.’\n\n“‘It is utterly useless,’ replied Felix; ‘we can\nnever again inhabit your cottage. The life of my father is in the greatest\ndanger, owing to the dreadful circumstance that I have related. My wife and\nmy sister will never recover from their horror. I entreat you not to reason\nwith me any more. Take possession of your tenement and let me fly from this\nplace.’\n\n“Felix trembled violently as he said this. He and his companion\nentered the cottage, in which they remained for a few minutes, and then\ndeparted. I never saw any of the family of De Lacey more.\n\n“I continued for the remainder of the day in my hovel in a state of\nutter and stupid despair. My protectors had departed and had broken\nthe only link that held me to the world. For the first time the\nfeelings of revenge and hatred filled my bosom, and I did not strive to\ncontrol them, but allowing myself to be borne away by the stream, I\nbent my mind towards injury and death. When I thought of my friends,\nof the mild voice of De Lacey, the gentle eyes of Agatha, and the\nexquisite beauty of the Arabian, these thoughts vanished and a gush of\ntears somewhat soothed me. But again when I reflected that they had\nspurned and deserted me, anger returned, a rage of anger, and unable to\ninjure anything human, I turned my fury towards inanimate objects. As\nnight advanced, I placed a variety of combustibles around the cottage,\nand after having destroyed every vestige of cultivation in the garden,\nI waited with forced impatience until the moon had sunk to commence my\noperations.\n\n“As the night advanced, a fierce wind arose from the woods and quickly\ndispersed the clouds that had loitered in the heavens; the blast tore\nalong like a mighty avalanche and produced a kind of insanity in my\nspirits that burst all bounds of reason and reflection. I lighted the\ndry branch of a tree and danced with fury around the devoted cottage,\nmy eyes still fixed on the western horizon, the edge of which the moon\nnearly touched. A part of its orb was at length hid, and I waved my\nbrand; it sank, and with a loud scream I fired the straw, and heath,\nand bushes, which I had collected. The wind fanned the fire, and the\ncottage was quickly enveloped by the flames, which clung to it and\nlicked it with their forked and destroying tongues.\n\n“As soon as I was convinced that no assistance could save any part of\nthe habitation, I quitted the scene and sought for refuge in the woods.\n\n“And now, with the world before me, whither should I bend my steps? I\nresolved to fly far from the scene of my misfortunes; but to me, hated\nand despised, every country must be equally horrible. At length the\nthought of you crossed my mind. I learned from your papers that you\nwere my father, my creator; and to whom could I apply with more fitness\nthan to him who had given me life? Among the lessons that Felix had\nbestowed upon Safie, geography had not been omitted; I had learned from\nthese the relative situations of the different countries of the earth.\nYou had mentioned Geneva as the name of your native town, and towards\nthis place I resolved to proceed.\n\n“But how was I to direct myself? I knew that I must travel in a\nsouthwesterly direction to reach my destination, but the sun was my\nonly guide. I did not know the names of the towns that I was to pass\nthrough, nor could I ask information from a'}
+16:57:51,838 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.947990720975213. input_tokens=34, output_tokens=1783
+16:57:54,334 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:54,335 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:54,335 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:54,335 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 128136, Requested 3634. Please try again in 5m35.31s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:57:54,337 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'moments vengeance, that\nburned within me, died in my heart, and I pursued my path towards the\ndestruction of the dæmon more as a task enjoined by heaven, as the\nmechanical impulse of some power of which I was unconscious, than as the\nardent desire of my soul.\n\nWhat his feelings were whom I pursued I cannot know. Sometimes, indeed, he\nleft marks in writing on the barks of the trees or cut in stone that guided\nme and instigated my fury. “My reign is not yet\nover”—these words were legible in one of these\ninscriptions—“you live, and my power is complete. Follow me; I\nseek the everlasting ices of the north, where you will feel the misery of\ncold and frost, to which I am impassive. You will find near this place, if\nyou follow not too tardily, a dead hare; eat and be refreshed. Come on, my\nenemy; we have yet to wrestle for our lives, but many hard and miserable\nhours must you endure until that period shall arrive.”\n\nScoffing devil! Again do I vow vengeance; again do I devote thee,\nmiserable fiend, to torture and death. Never will I give up my search\nuntil he or I perish; and then with what ecstasy shall I join my\nElizabeth and my departed friends, who even now prepare for me the\nreward of my tedious toil and horrible pilgrimage!\n\nAs I still pursued my journey to the northward, the snows thickened and the\ncold increased in a degree almost too severe to support. The peasants were\nshut up in their hovels, and only a few of the most hardy ventured forth to\nseize the animals whom starvation had forced from their hiding-places to\nseek for prey. The rivers were covered with ice, and no fish could be\nprocured; and thus I was cut off from my chief article of maintenance.\n\nThe triumph of my enemy increased with the difficulty of my labours. One\ninscription that he left was in these words: “Prepare! Your toils\nonly begin; wrap yourself in furs and provide food, for we shall soon enter\nupon a journey where your sufferings will satisfy my everlasting\nhatred.”\n\nMy courage and perseverance were invigorated by these scoffing words; I\nresolved not to fail in my purpose, and calling on Heaven to support\nme, I continued with unabated fervour to traverse immense deserts,\nuntil the ocean appeared at a distance and formed the utmost boundary\nof the horizon. Oh! How unlike it was to the blue seasons of the\nsouth! Covered with ice, it was only to be distinguished from land by\nits superior wildness and ruggedness. The Greeks wept for joy when\nthey beheld the Mediterranean from the hills of Asia, and hailed with\nrapture the boundary of their toils. I did not weep, but I knelt down\nand with a full heart thanked my guiding spirit for conducting me in\nsafety to the place where I hoped, notwithstanding my adversary’s gibe,\nto meet and grapple with him.\n\nSome weeks before this period I had procured a sledge and dogs and thus\ntraversed the snows with inconceivable speed. I know not whether the\nfiend possessed the same advantages, but I found that, as before I had\ndaily lost ground in the pursuit, I now gained on him, so much so that\nwhen I first saw the ocean he was but one day’s journey in advance, and\nI hoped to intercept him before he should reach the beach. With new\ncourage, therefore, I pressed on, and in two days arrived at a wretched\nhamlet on the seashore. I inquired of the inhabitants concerning the\nfiend and gained accurate information. A gigantic monster, they said,\nhad arrived the night before, armed with a gun and many pistols,\nputting to flight the inhabitants of a solitary cottage through fear of\nhis terrific appearance. He had carried off their store of winter\nfood, and placing it in a sledge, to draw which he had seized on a\nnumerous drove of trained dogs, he had harnessed them, and the same\nnight, to the joy of the horror-struck villagers, had pursued his\njourney across the sea in a direction that led to no land; and they\nconjectured that he must speedily be destroyed by the breaking of the\nice or frozen by the eternal frosts.\n\nOn hearing this information I suffered a temporary access of despair.\nHe had escaped me, and I must commence a destructive and almost endless\njourney across the mountainous ices of the ocean, amidst cold that few\nof the inhabitants could long endure and which I, the native of a\ngenial and sunny climate, could not hope to survive. Yet at the idea\nthat the fiend should live and be triumphant, my rage and vengeance\nreturned, and like a mighty tide, overwhelmed every other feeling.\nAfter a slight repose, during which the spirits of the dead hovered\nround and instigated me to toil and revenge, I prepared for my journey.\n\nI exchanged my land-sledge for one fashioned for the inequalities of\nthe Frozen Ocean, and purchasing a plentiful stock of provisions, I\ndeparted from land.\n\nI cannot guess how many days have passed since then, but I have endured\nmisery which nothing but the eternal sentiment of a just retribution\nburning within my heart could have enabled me to support. Immense and\nrugged mountains of ice often barred up my passage, and I often heard\nthe thunder of the ground sea, which threatened my destruction. But\nagain the frost came and made'}
+16:57:56,235 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:57:56,236 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:57:56,236 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:57:56,237 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 127464, Requested 3649. Please try again in 5m33.341s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:57:56,238 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'again felt as\nif I belonged to a race of human beings like myself, and I began to\nreflect upon what had passed with greater composure; yet still the\nwords of the fiend rang in my ears like a death-knell; they appeared\nlike a dream, yet distinct and oppressive as a reality.\n\nThe sun had far descended, and I still sat on the shore, satisfying my\nappetite, which had become ravenous, with an oaten cake, when I saw a\nfishing-boat land close to me, and one of the men brought me a packet;\nit contained letters from Geneva, and one from Clerval entreating me to\njoin him. He said that he was wearing away his time fruitlessly where\nhe was, that letters from the friends he had formed in London desired\nhis return to complete the negotiation they had entered into for his\nIndian enterprise. He could not any longer delay his departure; but as\nhis journey to London might be followed, even sooner than he now\nconjectured, by his longer voyage, he entreated me to bestow as much of\nmy society on him as I could spare. He besought me, therefore, to\nleave my solitary isle and to meet him at Perth, that we might proceed\nsouthwards together. This letter in a degree recalled me to life, and\nI determined to quit my island at the expiration of two days.\n\nYet, before I departed, there was a task to perform, on which I shuddered\nto reflect; I must pack up my chemical instruments, and for that purpose I\nmust enter the room which had been the scene of my odious work, and I must\nhandle those utensils the sight of which was sickening to me. The next\nmorning, at daybreak, I summoned sufficient courage and unlocked the door\nof my laboratory. The remains of the half-finished creature, whom I had\ndestroyed, lay scattered on the floor, and I almost felt as if I had\nmangled the living flesh of a human being. I paused to collect myself and\nthen entered the chamber. With trembling hand I conveyed the instruments\nout of the room, but I reflected that I ought not to leave the relics of my\nwork to excite the horror and suspicion of the peasants; and I accordingly\nput them into a basket, with a great quantity of stones, and laying them\nup, determined to throw them into the sea that very night; and in the\nmeantime I sat upon the beach, employed in cleaning and arranging my\nchemical apparatus.\n\nNothing could be more complete than the alteration that had taken place\nin my feelings since the night of the appearance of the dæmon. I had\nbefore regarded my promise with a gloomy despair as a thing that, with\nwhatever consequences, must be fulfilled; but I now felt as if a film\nhad been taken from before my eyes and that I for the first time saw\nclearly. The idea of renewing my labours did not for one instant occur\nto me; the threat I had heard weighed on my thoughts, but I did not\nreflect that a voluntary act of mine could avert it. I had resolved in\nmy own mind that to create another like the fiend I had first made\nwould be an act of the basest and most atrocious selfishness, and I\nbanished from my mind every thought that could lead to a different\nconclusion.\n\nBetween two and three in the morning the moon rose; and I then, putting my\nbasket aboard a little skiff, sailed out about four miles from the shore.\nThe scene was perfectly solitary; a few boats were returning towards land,\nbut I sailed away from them. I felt as if I was about the commission of a\ndreadful crime and avoided with shuddering anxiety any encounter with my\nfellow creatures. At one time the moon, which had before been clear, was\nsuddenly overspread by a thick cloud, and I took advantage of the moment of\ndarkness and cast my basket into the sea; I listened to the gurgling sound\nas it sank and then sailed away from the spot. The sky became clouded, but\nthe air was pure, although chilled by the northeast breeze that was then\nrising. But it refreshed me and filled me with such agreeable sensations\nthat I resolved to prolong my stay on the water, and fixing the rudder in a\ndirect position, stretched myself at the bottom of the boat. Clouds hid the\nmoon, everything was obscure, and I heard only the sound of the boat as its\nkeel cut through the waves; the murmur lulled me, and in a short time I\nslept soundly.\n\nI do not know how long I remained in this situation, but when I awoke I\nfound that the sun had already mounted considerably. The wind was high, and\nthe waves continually threatened the safety of my little skiff. I found\nthat the wind was northeast and must have driven me far from the coast from\nwhich I had embarked. I endeavoured to change my course but quickly found\nthat if I again made the attempt the boat would be instantly filled with\nwater. Thus situated, my only resource was to drive before the wind. I\nconfess that I felt a few sensations of terror. I had no compass with me\nand was so slenderly acquainted with the geography of this part of the\nworld that the sun was of little benefit to me. I might be driven into the\nwide Atlantic and feel all the tortures of starvation or be swallowed up in\nthe immeasurable waters that roared and buffeted around me. I had already\nbeen out many hours and felt the torment of a burning thirst'}
+16:57:57,859 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.136803010944277. input_tokens=34, output_tokens=1620
+16:57:59,862 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.903706398094073. input_tokens=34, output_tokens=2143
+16:58:02,159 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:02,160 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:58:02,161 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:02,161 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 125447, Requested 3500. Please try again in 5m26.841s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:58:02,162 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'age rendered him extremely averse to delay. For myself, there was one\nreward I promised myself from my detested toils—one consolation for my\nunparalleled sufferings; it was the prospect of that day when,\nenfranchised from my miserable slavery, I might claim Elizabeth and\nforget the past in my union with her.\n\nI now made arrangements for my journey, but one feeling haunted me\nwhich filled me with fear and agitation. During my absence I should\nleave my friends unconscious of the existence of their enemy and\nunprotected from his attacks, exasperated as he might be by my\ndeparture. But he had promised to follow me wherever I might go, and\nwould he not accompany me to England? This imagination was dreadful in\nitself, but soothing inasmuch as it supposed the safety of my friends.\nI was agonised with the idea of the possibility that the reverse of\nthis might happen. But through the whole period during which I was the\nslave of my creature I allowed myself to be governed by the impulses of\nthe moment; and my present sensations strongly intimated that the fiend\nwould follow me and exempt my family from the danger of his\nmachinations.\n\nIt was in the latter end of September that I again quitted my native\ncountry. My journey had been my own suggestion, and Elizabeth\ntherefore acquiesced, but she was filled with disquiet at the idea of\nmy suffering, away from her, the inroads of misery and grief. It had\nbeen her care which provided me a companion in Clerval—and yet a man\nis blind to a thousand minute circumstances which call forth a woman’s\nsedulous attention. She longed to bid me hasten my return; a thousand\nconflicting emotions rendered her mute as she bade me a tearful, silent\nfarewell.\n\nI threw myself into the carriage that was to convey me away, hardly\nknowing whither I was going, and careless of what was passing around.\nI remembered only, and it was with a bitter anguish that I reflected on\nit, to order that my chemical instruments should be packed to go with\nme. Filled with dreary imaginations, I passed through many beautiful\nand majestic scenes, but my eyes were fixed and unobserving. I could\nonly think of the bourne of my travels and the work which was to occupy\nme whilst they endured.\n\nAfter some days spent in listless indolence, during which I traversed\nmany leagues, I arrived at Strasburgh, where I waited two days for\nClerval. He came. Alas, how great was the contrast between us! He\nwas alive to every new scene, joyful when he saw the beauties of the\nsetting sun, and more happy when he beheld it rise and recommence a new\nday. He pointed out to me the shifting colours of the landscape and\nthe appearances of the sky. “This is what it is to live,” he cried;\n“now I enjoy existence! But you, my dear Frankenstein, wherefore are\nyou desponding and sorrowful!” In truth, I was occupied by gloomy\nthoughts and neither saw the descent of the evening star nor the golden\nsunrise reflected in the Rhine. And you, my friend, would be far more\namused with the journal of Clerval, who observed the scenery with an\neye of feeling and delight, than in listening to my reflections. I, a\nmiserable wretch, haunted by a curse that shut up every avenue to\nenjoyment.\n\nWe had agreed to descend the Rhine in a boat from Strasburgh to\nRotterdam, whence we might take shipping for London. During this\nvoyage we passed many willowy islands and saw several beautiful towns.\nWe stayed a day at Mannheim, and on the fifth from our departure from\nStrasburgh, arrived at Mainz. The course of the Rhine below Mainz\nbecomes much more picturesque. The river descends rapidly and winds\nbetween hills, not high, but steep, and of beautiful forms. We saw\nmany ruined castles standing on the edges of precipices, surrounded by\nblack woods, high and inaccessible. This part of the Rhine, indeed,\npresents a singularly variegated landscape. In one spot you view\nrugged hills, ruined castles overlooking tremendous precipices, with\nthe dark Rhine rushing beneath; and on the sudden turn of a promontory,\nflourishing vineyards with green sloping banks and a meandering river\nand populous towns occupy the scene.\n\nWe travelled at the time of the vintage and heard the song of the labourers\nas we glided down the stream. Even I, depressed in mind, and my spirits\ncontinually agitated by gloomy feelings, even I was pleased. I lay at the\nbottom of the boat, and as I gazed on the cloudless blue sky, I seemed to\ndrink in a tranquillity to which I had long been a stranger. And if these\nwere my sensations, who can describe those of Henry? He felt as if he had\nbeen transported to Fairy-land and enjoyed a happiness seldom tasted by\nman. “I have seen,” he said, “the most beautiful scenes\nof my own country; I have visited the lakes of Lucerne and Uri, where the\nsnowy mountains descend almost perpendicularly to the water, casting black\nand impenetrable shades, which would cause a gloomy and mournful appearance\nwere it not for the most verdant islands that relieve the eye by their gay\nappearance; I have seen this lake agitated by a tempest, when the wind tore\nup whirlwinds of water and gave you an idea'}
+16:58:04,191 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:04,199 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': 'MANY entities and relationships were missed in the last extraction. Remember to ONLY emit entities that match any of the previously extracted types. Add them below using the same format:\n'}
+16:58:04,199 graphrag.llm.base.rate_limiting_llm WARNING extract-continuation-0 failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:04,199 root ERROR error extracting graph
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 122, in __call__
+    result = await self._process_document(text, prompt_variables)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/graph/graph_extractor.py", line 161, in _process_document
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 124778, Requested 3456. Please try again in 5m24.702s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:58:04,201 graphrag.index.reporting.file_workflow_callbacks INFO Entity Extraction Error details={'doc_index': 0, 'text': 'as! Yes; I cannot withstand their demands. I cannot lead them\nunwillingly to danger, and I must return.”\n\n“Do so, if you will; but I will not. You may give up your purpose, but\nmine is assigned to me by Heaven, and I dare not. I am weak, but\nsurely the spirits who assist my vengeance will endow me with\nsufficient strength.” Saying this, he endeavoured to spring from the\nbed, but the exertion was too great for him; he fell back and fainted.\n\nIt was long before he was restored, and I often thought that life was\nentirely extinct. At length he opened his eyes; he breathed with\ndifficulty and was unable to speak. The surgeon gave him a composing\ndraught and ordered us to leave him undisturbed. In the meantime he\ntold me that my friend had certainly not many hours to live.\n\nHis sentence was pronounced, and I could only grieve and be patient. I sat\nby his bed, watching him; his eyes were closed, and I thought he slept; but\npresently he called to me in a feeble voice, and bidding me come near,\nsaid, “Alas! The strength I relied on is gone; I feel that I shall\nsoon die, and he, my enemy and persecutor, may still be in being. Think\nnot, Walton, that in the last moments of my existence I feel that burning\nhatred and ardent desire of revenge I once expressed; but I feel myself\njustified in desiring the death of my adversary. During these last days I\nhave been occupied in examining my past conduct; nor do I find it blamable.\nIn a fit of enthusiastic madness I created a rational creature and was\nbound towards him to assure, as far as was in my power, his happiness and\nwell-being. This was my duty, but there was another still paramount to\nthat. My duties towards the beings of my own species had greater claims to\nmy attention because they included a greater proportion of happiness or\nmisery. Urged by this view, I refused, and I did right in refusing, to\ncreate a companion for the first creature. He showed unparalleled malignity\nand selfishness in evil; he destroyed my friends; he devoted to destruction\nbeings who possessed exquisite sensations, happiness, and wisdom; nor do I\nknow where this thirst for vengeance may end. Miserable himself that he may\nrender no other wretched, he ought to die. The task of his destruction was\nmine, but I have failed. When actuated by selfish and vicious motives, I\nasked you to undertake my unfinished work, and I renew this request now,\nwhen I am only induced by reason and virtue.\n\n“Yet I cannot ask you to renounce your country and friends to fulfil\nthis task; and now that you are returning to England, you will have\nlittle chance of meeting with him. But the consideration of these\npoints, and the well balancing of what you may esteem your duties, I\nleave to you; my judgment and ideas are already disturbed by the near\napproach of death. I dare not ask you to do what I think right, for I\nmay still be misled by passion.\n\n“That he should live to be an instrument of mischief disturbs me; in\nother respects, this hour, when I momentarily expect my release, is the\nonly happy one which I have enjoyed for several years. The forms of\nthe beloved dead flit before me, and I hasten to their arms. Farewell,\nWalton! Seek happiness in tranquillity and avoid ambition, even if it\nbe only the apparently innocent one of distinguishing yourself in\nscience and discoveries. Yet why do I say this? I have myself been\nblasted in these hopes, yet another may succeed.”\n\nHis voice became fainter as he spoke, and at length, exhausted by his\neffort, he sank into silence. About half an hour afterwards he\nattempted again to speak but was unable; he pressed my hand feebly, and\nhis eyes closed for ever, while the irradiation of a gentle smile passed\naway from his lips.\n\nMargaret, what comment can I make on the untimely extinction of this\nglorious spirit? What can I say that will enable you to understand the\ndepth of my sorrow? All that I should express would be inadequate and\nfeeble. My tears flow; my mind is overshadowed by a cloud of\ndisappointment. But I journey towards England, and I may there find\nconsolation.\n\nI am interrupted. What do these sounds portend? It is midnight; the\nbreeze blows fairly, and the watch on deck scarcely stir. Again there\nis a sound as of a human voice, but hoarser; it comes from the cabin\nwhere the remains of Frankenstein still lie. I must arise and examine.\nGood night, my sister.\n\nGreat God! what a scene has just taken place! I am yet dizzy with the\nremembrance of it. I hardly know whether I shall have the power to detail\nit; yet the tale which I have recorded would be incomplete without this\nfinal and wonderful catastrophe.\n\nI entered the cabin where lay the remains of my ill-fated and admirable\nfriend. Over him hung a form which I cannot find words to\ndescribe—gigantic in stature, yet uncouth and distorted in its\nproportions. As he hung over the coffin, his face was concealed by long\nlocks of ragged hair; but one vast hand was extended, in colour and\napparent texture like that of a mummy. When he heard the sound of my\napproach, he ceased to utter exclamations of grief and'}
+16:58:05,882 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.43993672297802. input_tokens=34, output_tokens=4000
+16:58:08,168 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.026250698952936. input_tokens=34, output_tokens=4000
+16:58:18,169 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.226132767042145. input_tokens=34, output_tokens=4000
+16:58:30,179 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.43155872193165. input_tokens=34, output_tokens=4001
+16:58:42,185 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.67350124497898. input_tokens=34, output_tokens=4001
+16:58:42,203 datashaper.workflow.workflow INFO executing verb merge_graphs
+16:58:42,395 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+16:58:42,613 graphrag.index.run.workflow INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+16:58:42,614 graphrag.utils.storage INFO read table from storage: create_base_extracted_entities.parquet
+16:58:42,624 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+16:58:43,101 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,103 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MARGARET"\nDescription List: ["Margaret is Victor Frankenstein\'s sister, who is anxiously awaiting his return", "Margaret is the narrator\'s friend who is listening to Frankenstein\'s story", "Margaret is the narrator\'s sister", "Margaret is the narrator\'s sister or friend", "Margaret is the person to whom Walton is reading the narrator\'s story", "Margaret is the person who the captain is writing to"]\n#######\nOutput:\n'}
+16:58:43,103 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,105 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,106 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,108 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "HOME"\nDescription List: ["Home is the place where the narrator\'s family lives", "The home of Victor Frankenstein\'s family", "The narrator\'s home is where he is leaving", "The narrator\'s home was on a common where he spent his childhoodThe narrator spent his childhood on a common near his home"]\n#######\nOutput:\n'}
+16:58:43,108 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,111 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "FRANKENSTEIN"\nDescription List: ["Frankenstein is a novel written by Mary Shelley, first published in 1818", "Frankenstein is a novel written by Mary Wollstonecraft Shelley", "Frankenstein is a person who has been referred to as modest", "Frankenstein is the captain of the vessel and a brave man who encourages his crew to be heroes", "Frankenstein is the creator of the monster and is being addressed by the monster", "Frankenstein is the creator of the monster and is being addressed by the monsterFrankenstein is the creator of the monster", "Frankenstein is the creator of the monster and the author of its existence and tormentsFrankenstein is the author of the monster\'s existence and torments", "Frankenstein is the monster created by Victor Frankenstein", "Frankenstein is the narrator of the story", "Frankenstein is the narrator of the story and the creator of the monster", "Frankenstein is the narrator\'s enemy and the father of the child he kills", "Frankenstein is the narrator\'s father", "Frankenstein is the narrator\'s name and he is a person who is filled with remorse and horror for his actions", "Frankenstein is the novel in which the narrator\'s story takes place", "Frankenstein is the protagonist of the story who is a scientist and a monster", "Frankenstein is the scientist who created the monster", "The story of Victor Frankenstein\'s creation"]\n#######\nOutput:\n'}
+16:58:43,111 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,122 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,124 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "POETS"\nDescription List: ["The narrator became acquainted with the celebrated poets of his own country", "The narrator became acquainted with the celebrated poets of their own country", "Victor mentions reading the poetry of Greece and Rome"]\n#######\nOutput:\n'}
+16:58:43,124 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,140 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,141 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ALHAMIA PRISON"\nDescription List: ["", "Alhamia Prison is a location in Tiruzia", "Alhamia Prison is a location in the story", "Alhamia Prison is a location mentioned in the letter", "Alhamia Prison is a location mentioned in the story", "Alhamia Prison is a location where Samuel Namara was held", "Alhamia Prison is a place that Samuel Namara was held in", "Alhamia Prison is a place that was not mentioned in the text", "Alhamia Prison is a place where Samuel Namara was held", "Alhamia Prison is a place where Samuel Namara was held captive", "Alhamia Prison is a prison in Tiruzia", "Alhamia Prison is a prison in TiruziaAlhamia Prison is a place mentioned in the text", "Alhamia Prison is a prison that is mentioned in the context of Frankenstein", "Alhamia Prison is the location where Justine was held", "Alhamia Prison is the location where the monster was being held", "Alhamia Prison was where Samuel Namara was held", "Alhamia prison is a place where Samuel Namara was held", "Alhamia prison is the place where the stranger was held captive", "I had been conversing with several persons in the island I had inhabited", "Samuel Namara was a prisoner at Alhamia prison", "The narrator spent time in Alhamia Prison", "The prison where Muhammadan was being held"]\n#######\nOutput:\n'}
+16:58:43,142 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,606 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,608 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MASTER"\nDescription List: ["The master is the person in charge of the ship", "The master of the ship is a person of an excellent disposition"]\n#######\nOutput:\n'}
+16:58:43,608 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,942 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,944 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ICE"\nDescription List: ["Ice is the obstacle that Victor Frankenstein and his companions are facing", "The ice is the barrier that the ship had to navigate through"]\n#######\nOutput:\n'}
+16:58:43,944 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:43,994 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:43,996 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SHIP"\nDescription List: ["Ship is the vessel that rescued the narrator", "The narrator is going to sail on a ship", "The ship is the vessel that rescued the stranger", "The ship is the vessel that the narrator and the stranger are on"]\n#######\nOutput:\n'}
+16:58:43,996 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:44,657 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:44,660 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "UNIVERSITY"\nDescription List: ["The narrator is self-educated and never attended university", "The university is the narrator\'s destination", "The university is where Frankenstein studies and meets his professors", "University is a type of educational institution", "University where I procured great esteem and admiration for my discoveries"]\n#######\nOutput:\n'}
+16:58:44,660 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:45,49 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:45,50 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "HOME"\nDescription List: ["Home is the place where the narrator\'s family lives", "The home of Victor Frankenstein\'s family", "The narrator\'s home is where he is leaving", "The narrator\'s home was on a common where he spent his childhoodThe narrator spent his childhood on a common near his home"]\n#######\nOutput:\n'}
+16:58:45,51 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:45,703 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:45,705 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ICE"\nDescription List: ["Ice is the obstacle that Victor Frankenstein and his companions are facing", "The ice is the barrier that the ship had to navigate through"]\n#######\nOutput:\n'}
+16:58:45,706 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:46,97 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:46,98 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MASTER"\nDescription List: ["The master is the person in charge of the ship", "The master of the ship is a person of an excellent disposition"]\n#######\nOutput:\n'}
+16:58:46,99 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:46,600 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:46,601 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SHIP"\nDescription List: ["Ship is the vessel that rescued the narrator", "The narrator is going to sail on a ship", "The ship is the vessel that rescued the stranger", "The ship is the vessel that the narrator and the stranger are on"]\n#######\nOutput:\n'}
+16:58:46,601 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:47,87 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:47,88 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "FRIEND"\nDescription List: ["A friend is a person who is close to the narrator and the stranger", "The friend is the one who is being mourned by the monster", "The friend is the one who was driven from Felix\'s door with contumely", "The narrator\'s friend is a noble fellow", "Victor Frankenstein and Elizabeth Lavenza as friends"]\n#######\nOutput:\n'}
+16:58:47,88 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:47,817 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:47,818 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "GROUND SEA"\nDescription List: ["Ground sea is a natural phenomenon that threatened the narrator\'s destruction", "The ground sea is the area where the ice broke and freed the ship"]\n#######\nOutput:\n'}
+16:58:47,819 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:48,334 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:58:48,335 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ICE"\nDescription List: ["Ice is the obstacle that Victor Frankenstein and his companions are facing", "The ice is the barrier that the ship had to navigate through"]\n#######\nOutput:\n'}
+16:58:48,335 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:58:48,337 datashaper.workflow.workflow ERROR Error executing verb "summarize_descriptions" in create_summarized_entities: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 110156, Requested 202. Please try again in 4m31.076s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 415, in _execute_verb
+    result = await result
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 183, in summarize_descriptions
+    results = [
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 184, in <listcomp>
+    await get_resolved_entities(row, semaphore) for row in output.itertuples()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 147, in get_resolved_entities
+    results = await asyncio.gather(*futures)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 167, in do_summarize_descriptions
+    results = await strategy_exec(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 34, in run
+    return await run_summarize_descriptions(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 67, in run_summarize_descriptions
+    result = await extractor(items=items, descriptions=descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 73, in __call__
+    result = await self._summarize_descriptions(items, descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 110, in _summarize_descriptions
+    result = await self._summarize_descriptions_with_llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 129, in _summarize_descriptions_with_llm
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 110156, Requested 202. Please try again in 4m31.076s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:58:48,350 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "summarize_descriptions" in create_summarized_entities: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 110156, Requested 202. Please try again in 4m31.076s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}} details=None
+16:58:48,350 graphrag.index.run.run ERROR error running workflow create_summarized_entities
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/run/run.py", line 225, in run_pipeline
+    result = await _process_workflow(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/run/workflow.py", line 91, in _process_workflow
+    result = await workflow.run(context, callbacks)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 415, in _execute_verb
+    result = await result
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 183, in summarize_descriptions
+    results = [
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 184, in <listcomp>
+    await get_resolved_entities(row, semaphore) for row in output.itertuples()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 147, in get_resolved_entities
+    results = await asyncio.gather(*futures)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 167, in do_summarize_descriptions
+    results = await strategy_exec(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 34, in run
+    return await run_summarize_descriptions(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 67, in run_summarize_descriptions
+    result = await extractor(items=items, descriptions=descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 73, in __call__
+    result = await self._summarize_descriptions(items, descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 110, in _summarize_descriptions
+    result = await self._summarize_descriptions_with_llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 129, in _summarize_descriptions_with_llm
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 110156, Requested 202. Please try again in 4m31.076s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+16:58:48,353 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None
+16:58:48,433 graphrag.index.cli ERROR Errors occurred during the pipeline run, see logs for more details.

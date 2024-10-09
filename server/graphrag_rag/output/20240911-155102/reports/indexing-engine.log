@@ -1,0 +1,541 @@
+15:51:02,480 graphrag.index.cli INFO Logging enabled at graphrager/output/20240911-155102/reports/indexing-engine.log
+15:51:02,483 graphrag.index.cli INFO Starting pipeline run for: 20240911-155102, dryrun=False
+15:51:02,484 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "llama-3.1-8b-instant",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://api.groq.com/openai/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 20000,
+        "requests_per_minute": 30,
+        "max_retries": 3,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "graphrager",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 1000,
+        "max_input_length": 4000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+15:51:02,488 graphrag.index.create_pipeline_config INFO skipping workflows 
+15:51:02,488 graphrag.index.run INFO Running pipeline
+15:51:02,488 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at graphrager/output/20240911-155102/artifacts
+15:51:02,489 graphrag.index.input.load_input INFO loading input from root_dir=input
+15:51:02,489 graphrag.index.input.load_input INFO using file storage for input
+15:51:02,489 graphrag.index.storage.file_pipeline_storage INFO search graphrager/input for files matching .*\.txt$
+15:51:02,491 graphrag.index.input.text INFO found text files from input, found [('snow_white.txt', {})]
+15:51:02,493 graphrag.index.input.text INFO Found 1 files, loading 1
+15:51:02,502 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+15:51:02,502 graphrag.index.run INFO Final # of rows loaded: 1
+15:51:02,637 graphrag.index.run INFO Running workflow: create_base_text_units...
+15:51:02,637 graphrag.index.run INFO dependencies for create_base_text_units: []
+15:51:02,638 datashaper.workflow.workflow INFO executing verb orderby
+15:51:02,647 datashaper.workflow.workflow INFO executing verb zip
+15:51:02,650 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:02,663 datashaper.workflow.workflow INFO executing verb chunk
+15:51:02,913 datashaper.workflow.workflow INFO executing verb select
+15:51:02,917 datashaper.workflow.workflow INFO executing verb unroll
+15:51:02,924 datashaper.workflow.workflow INFO executing verb rename
+15:51:02,925 datashaper.workflow.workflow INFO executing verb genid
+15:51:02,926 datashaper.workflow.workflow INFO executing verb unzip
+15:51:02,929 datashaper.workflow.workflow INFO executing verb copy
+15:51:02,929 datashaper.workflow.workflow INFO executing verb filter
+15:51:02,948 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+15:51:03,184 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+15:51:03,185 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+15:51:03,185 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+15:51:03,227 datashaper.workflow.workflow INFO executing verb entity_extract
+15:51:03,230 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=https://api.groq.com/openai/v1
+15:51:03,285 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for llama-3.1-8b-instant: TPM=20000, RPM=30
+15:51:03,285 graphrag.index.llm.load_llm INFO create concurrency limiter for llama-3.1-8b-instant: 25
+15:51:03,308 datashaper.workflow.workflow INFO executing verb merge_graphs
+15:51:03,319 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+15:51:03,454 graphrag.index.run INFO Running workflow: create_summarized_entities...
+15:51:03,454 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+15:51:03,454 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+15:51:03,458 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+15:51:04,135 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+15:51:04,139 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6234528799541295. input_tokens=173, output_tokens=68
+15:51:04,630 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+15:51:04,632 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1276370339328423. input_tokens=213, output_tokens=89
+15:51:04,639 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+15:51:04,808 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+15:51:04,808 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+15:51:04,809 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+15:51:04,815 datashaper.workflow.workflow INFO executing verb cluster_graph
+15:51:04,847 datashaper.workflow.workflow INFO executing verb select
+15:51:04,849 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+15:51:05,16 graphrag.index.run INFO Running workflow: create_final_entities...
+15:51:05,17 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+15:51:05,17 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+15:51:05,24 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:05,31 datashaper.workflow.workflow INFO executing verb rename
+15:51:05,32 datashaper.workflow.workflow INFO executing verb select
+15:51:05,33 datashaper.workflow.workflow INFO executing verb dedupe
+15:51:05,36 datashaper.workflow.workflow INFO executing verb rename
+15:51:05,36 datashaper.workflow.workflow INFO executing verb filter
+15:51:05,42 datashaper.workflow.workflow INFO executing verb text_split
+15:51:05,44 datashaper.workflow.workflow INFO executing verb drop
+15:51:05,45 datashaper.workflow.workflow INFO executing verb merge
+15:51:05,62 datashaper.workflow.workflow INFO executing verb text_embed
+15:51:05,64 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=None
+15:51:05,108 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for text-embedding-3-small: TPM=0, RPM=0
+15:51:05,108 graphrag.index.llm.load_llm INFO create concurrency limiter for text-embedding-3-small: 25
+15:51:05,114 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 55 inputs via 55 snippets using 4 batches. max_batch_size=16, max_tokens=8191
+15:51:05,161 datashaper.workflow.workflow INFO executing verb drop
+15:51:05,161 datashaper.workflow.workflow INFO executing verb filter
+15:51:05,169 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+15:51:05,413 graphrag.index.run INFO Running workflow: create_final_nodes...
+15:51:05,414 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+15:51:05,415 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+15:51:05,421 datashaper.workflow.workflow INFO executing verb layout_graph
+15:51:05,445 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:05,452 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:05,458 datashaper.workflow.workflow INFO executing verb filter
+15:51:05,463 datashaper.workflow.workflow INFO executing verb drop
+15:51:05,463 datashaper.workflow.workflow INFO executing verb select
+15:51:05,464 datashaper.workflow.workflow INFO executing verb rename
+15:51:05,465 datashaper.workflow.workflow INFO executing verb join
+15:51:05,478 datashaper.workflow.workflow INFO executing verb convert
+15:51:05,488 datashaper.workflow.workflow INFO executing verb rename
+15:51:05,490 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+15:51:05,692 graphrag.index.run INFO Running workflow: create_final_communities...
+15:51:05,694 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+15:51:05,694 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+15:51:05,702 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:05,717 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:05,728 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:05,736 datashaper.workflow.workflow INFO executing verb join
+15:51:05,753 datashaper.workflow.workflow INFO executing verb join
+15:51:05,763 datashaper.workflow.workflow INFO executing verb concat
+15:51:05,764 datashaper.workflow.workflow INFO executing verb filter
+15:51:05,773 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:05,777 datashaper.workflow.workflow INFO executing verb join
+15:51:05,784 datashaper.workflow.workflow INFO executing verb filter
+15:51:05,790 datashaper.workflow.workflow INFO executing verb fill
+15:51:05,792 datashaper.workflow.workflow INFO executing verb merge
+15:51:05,795 datashaper.workflow.workflow INFO executing verb copy
+15:51:05,795 datashaper.workflow.workflow INFO executing verb select
+15:51:05,797 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+15:51:05,951 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+15:51:05,951 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+15:51:05,952 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+15:51:05,959 datashaper.workflow.workflow INFO executing verb select
+15:51:05,960 datashaper.workflow.workflow INFO executing verb unroll
+15:51:05,962 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:05,967 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+15:51:06,133 graphrag.index.run INFO Running workflow: create_final_relationships...
+15:51:06,133 graphrag.index.run INFO dependencies for create_final_relationships: ['create_final_nodes', 'create_base_entity_graph']
+15:51:06,134 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+15:51:06,141 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+15:51:06,145 datashaper.workflow.workflow INFO executing verb unpack_graph
+15:51:06,151 datashaper.workflow.workflow INFO executing verb filter
+15:51:06,155 datashaper.workflow.workflow INFO executing verb rename
+15:51:06,156 datashaper.workflow.workflow INFO executing verb filter
+15:51:06,161 datashaper.workflow.workflow INFO executing verb drop
+15:51:06,161 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+15:51:06,167 datashaper.workflow.workflow INFO executing verb convert
+15:51:06,167 datashaper.workflow.workflow INFO executing verb convert
+15:51:06,169 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+15:51:06,346 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+15:51:06,347 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+15:51:06,347 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+15:51:06,355 datashaper.workflow.workflow INFO executing verb select
+15:51:06,356 datashaper.workflow.workflow INFO executing verb unroll
+15:51:06,359 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:06,363 datashaper.workflow.workflow INFO executing verb select
+15:51:06,372 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+15:51:06,545 graphrag.index.run INFO Running workflow: create_final_community_reports...
+15:51:06,546 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_nodes']
+15:51:06,547 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+15:51:06,555 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+15:51:06,562 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+15:51:06,565 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+15:51:06,568 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+15:51:06,573 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+15:51:06,574 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 55
+15:51:06,616 datashaper.workflow.workflow INFO executing verb create_community_reports
+15:51:08,514 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+15:51:08,518 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.8737828900339082. input_tokens=2764, output_tokens=654
+15:51:09,21 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+15:51:09,36 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an AI assistant that helps a human analyst to perform general information discovery. Information discovery is the process of identifying and assessing relevant information associated with certain entities (e.g., organizations and individuals) within a network.\n\n# Goal\nWrite a comprehensive report of a community, given a list of entities that belong to the community as well as their relationships and optional associated claims. The report will be used to inform decision-makers about information associated with the community and their potential impact. The content of this report includes an overview of the community\'s key entities, their legal compliance, technical capabilities, reputation, and noteworthy claims.\n\n# Report Structure\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\n\n# Example Input\n-----------\nText:\n\nEntities\n\nid,entity,description\n5,VERDANT OASIS PLAZA,Verdant Oasis Plaza is the location of the Unity March\n6,HARMONY ASSEMBLY,Harmony Assembly is an organization that is holding a march at Verdant Oasis Plaza\n\nRelationships\n\nid,source,target,description\n37,VERDANT OASIS PLAZA,UNITY MARCH,Verdant Oasis Plaza is the location of the Unity March\n38,VERDANT OASIS PLAZA,HARMONY ASSEMBLY,Harmony Assembly is holding a march at Verdant Oasis Plaza\n39,VERDANT OASIS PLAZA,UNITY MARCH,The Unity March is taking place at Verdant Oasis Plaza\n40,VERDANT OASIS PLAZA,TRIBUNE SPOTLIGHT,Tribune Spotlight is reporting on the Unity march taking place at Verdant Oasis Plaza\n41,VERDANT OASIS PLAZA,BAILEY ASADI,Bailey Asadi is speaking at Verdant Oasis Plaza about the march\n43,HARMONY ASSEMBLY,UNITY MARCH,Harmony Assembly is organizing the Unity March\n\nOutput:\n{{\n    "title": "Verdant Oasis Plaza and Unity March",\n    "summary": "The community revolves around the Verdant Oasis Plaza, which is the location of the Unity March. The plaza has relationships with the Harmony Assembly, Unity March, and Tribune Spotlight, all of which are associated with the march event.",\n    "rating": 5.0,\n    "rating_explanation": "The impact severity rating is moderate due to the potential for unrest or conflict during the Unity March.",\n    "findings": [\n        {{\n            "summary": "Verdant Oasis Plaza as the central location",\n            "explanation": "Verdant Oasis Plaza is the central entity in this community, serving as the location for the Unity March. This plaza is the common link between all other entities, suggesting its significance in the community. The plaza\'s association with the march could potentially lead to issues such as public disorder or conflict, depending on the nature of the march and the reactions it provokes. [Data: Entities (5), Relationships (37, 38, 39, 40, 41,+more)]"\n        }},\n        {{\n            "summary": "Harmony Assembly\'s role in the community",\n            "explanation": "Harmony Assembly is another key entity in this community, being the organizer of the march at Verdant Oasis Plaza. The nature of Harmony Assembly and its march could be a potential source of threat, depending on their objectives and the reactions they provoke. The relationship between Harmony Assembly and the plaza is crucial in understanding the dynamics of this community. [Data: Entities(6), Relationships (38, 43)]"\n        }},\n        {{\n            "summary": "Unity March as a significant event",\n            "explanation": "The Unity March is a significant event taking place at Verdant Oasis Plaza. This event is a key factor in the community\'s dynamics and could be a potential source of threat, depending on the nature of the march and the reactions it provokes. The relationship between the march and the plaza is crucial in understanding the dynamics of this community. [Data: Relationships (39)]"\n        }},\n        {{\n            "summary": "Role of Tribune Spotlight",\n            "explanation": "Tribune Spotlight is reporting on the Unity March taking place in Verdant Oasis Plaza. This suggests that the event has attracted media attention, which could amplify its impact on the community. The role of Tribune Spotlight could be significant in shaping public perception of the event and the entities involved. [Data: Relationships (40)]"\n        }}\n    ]\n}}\n\n\n# Real Data\n\nUse the following text for your answer. Do not make anything up in your answer.\n\nText:\n-----Entities-----\nhuman_readable_id,title,description,degree\n1,QUEEN,"The Queen, also known as the wicked queen, is Snow-white\'s step-mother who is driven by jealousy of Snow-white\'s beauty. She is a beautiful woman, but her pride and haughtiness make her unable to bear the thought of anyone else surpassing her in beauty. This intense jealousy leads her to attempt to kill Snow-white, making her the main antagonist of the story.",11\n3,LOOKING-GLASS,"The LOOKING-GLASS is a magical mirror that serves as a truth-telling device, used by the queen to assess her beauty. It has the ability to reveal who is the fairest of all, providing an honest evaluation of physical appearance. This enchanted mirror is a tool for the queen to gauge her own beauty and that of others, offering a candid assessment of their physical attributes.",5\n4,HUNTSMAN,"The Huntsman is a man who was tasked by the queen to take Snow White away into the forest. However, instead of killing her as instructed, he chose to spare her life. This act of mercy ultimately led to the Huntsman\'s decision to inform Snow White that the queen had ordered him to kill her, but in reality, he was giving her the opportunity to escape into the forest and live.",3\n31,STEP-MOTHER,Snow-white\'s step-mother is the queen who is jealous of Snow-white\'s beauty,2\n47,GLASS,The glass was a magical object that told the queen that snow-white was the fairest of them all,1\n44,SNOW-WHITE\'S WEDDING,Snow-white\'s wedding was held with great show and splendor,1\n\n\n-----Relationships-----\nhuman_readable_id,source,target,description,rank\n11,QUEEN,SNOW-WHITE,"The Queen and Snow-White are two entities with a complex and tumultuous relationship. The Queen, driven by jealousy, attempts to kill Snow-White due to her beauty. This jealousy is a recurring theme, as it is mentioned in multiple descriptions that the Queen was motivated by a desire to eliminate Snow-White because of her physical attractiveness.",21\n0,SNOW WHITE,QUEEN,"Based on the provided data, here is a comprehensive summary of the entities and their descriptions:\n\nSnow White and the Queen are two key entities in a well-known narrative. The Queen, driven by jealousy, is the primary antagonist in the story. Her motivation stems from her envy of Snow White\'s beauty, which she perceives as a threat to her own status and power. This jealousy ultimately leads the Queen to attempt to kill Snow White, highlighting the Queen\'s ruthless and vengeful nature.",21\n12,QUEEN,SEVEN DWARFS,"The QUEEN and the SEVEN DWARFS are entities in a narrative context. \n\nThe QUEEN is a character who has been let into the house of the SEVEN DWARFS, unbeknownst to them. However, the SEVEN DWARFS have a suspicion that the QUEEN is trying to harm Snow White, suggesting a potential motive behind her actions.",18\n16,QUEEN,APPLE,The poisoned apple is used by the queen to try and kill Snow WhiteThe queen uses the poisoned apple to try and kill Snow White,17\n17,QUEEN,WHITE APPLE,The queen uses the white apple as a trick to get Snow White to eat the poisoned appleThe white apple is used by the queen as a trick to get Snow White to eat the poisoned apple,17\n13,QUEEN,LOOKING-GLASS,"The QUEEN and the LOOKING-GLASS are entities in a narrative context. The QUEEN uses the LOOKING-GLASS to determine who is the fairest of all, and upon being told that Snow White possesses greater beauty, the QUEEN becomes jealous. This jealousy stems from the truth revealed by the LOOKING-GLASS, which indicates that Snow White is indeed the fairest of all, and not the QUEEN herself.",16\n20,LOOKING-GLASS,SNOW-WHITE,The looking-glass is used by the queen to check her beauty and is told that Snow-white is still alive,15\n6,SNOW WHITE,LOOKING-GLASS,"The looking-glass tells Snow White that she is the fairest of allSnow White is told by the looking-glass that she is the fairest of all, which makes the queen jealous",15\n15,QUEEN,FARMER\'S WIFE,The queen disguises herself as a farmer\'s wife to trick Snow White into eating the poisoned appleThe farmer\'s wife is the queen\'s disguise,15\n10,QUEEN,HUNTSMAN,"The Queen and the Huntsman are two key entities in a narrative involving Snow White. \n\nThe Queen, who is the primary antagonist, ordered the Huntsman to kill Snow White. However, the Huntsman, instead of carrying out the Queen\'s orders, chose to spare Snow White\'s life. This decision was likely motivated by a change of heart or a sense of compassion for the young woman. The Queen, on the other hand, was angry with the Huntsman for disobeying her orders and sparing Snow White\'s life.",14\n23,HUNTSMAN,SNOW-WHITE,The huntsman spares Snow-white\'s life and helps her escape,13\n1,SNOW WHITE,HUNTSMAN,"The huntsman was ordered by the queen to take Snow White away into the forest and kill her, but he had pity on her and let her go",13\n14,QUEEN,STEP-MOTHER,The queen is Snow-white\'s step-mother who is jealous of Snow-white\'s beauty,13\n18,QUEEN,GLASS,The glass told the queen that snow-white was the fairest of them allThe queen asked the glass who was the fairest of them all and it told her that snow-white was,12\n19,QUEEN,SNOW-WHITE\'S WEDDING,The queen was invited to snow-white\'s wedding but was forced to dance in red-hot shoes until she died,12\n57,SNOW-WHITE,STEP-MOTHER,Snow-white\'s step-mother is the queen who is jealous of Snow-white\'s beauty,12\n21,LOOKING-GLASS,APPLE,The looking-glass does not mention the poisoned apple,11\n22,LOOKING-GLASS,WHITE APPLE,The looking-glass does not mention the white apple,11\n\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\nOutput:'}
+15:51:09,36 graphrag.index.graph.extractors.community_reports.community_reports_extractor ERROR error generating community report
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/index/graph/extractors/community_reports/community_reports_extractor.py", line 58, in __call__
+    await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+           ^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/base_llm.py", line 48, in __call__
+    return await self._invoke_json(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 80, in _invoke_json
+    result = await generate()
+             ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 72, in generate
+    await self._native_json(input, **{**kwargs, "name": call_name})
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 96, in _native_json
+    result = await self._invoke(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/openai/resources/chat/completions.py", line 1339, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.12/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': '{\n  "title": "The Queen and Snow White",\n  "summary": "The community revolves around the Queen and Snow White, with the Queen being the primary antagonist driven by jealousy of Snow White\'s beauty. The Queen\'s actions are motivated by a desire to eliminate Snow White, and she uses various means to achieve this goal, including the poisoned apple and disguising herself as a farmer\'s wife.",\n  "rating": 8.0,\n  "rating_explanation": "The impact severity rating is high due to the Queen\'s ruthless and vengeful nature, which poses a significant threat to Snow White\'s life and well-being.",\n  "findings": [\n    {\n      "summary": "The Queen\'s jealousy and motivation",\n      "explanation": "The Queen\'s primary motivation is her jealousy of Snow White\'s beauty, which drives her to attempt to kill Snow White. This jealousy is a recurring theme throughout the narrative, and it is clear that the Queen is willing to go to great lengths to eliminate Snow White. [Data: Entities (1), Relationships (11, 0, 12, 16, 17)]"\n    },\n    {\n      "summary": "The Queen\'s use of the poisoned apple",\n      "explanation": "The Queen uses the poisoned apple as a means to try and kill Snow White. This is a significant event in the narrative, and it highlights the Queen\'s ruthless and vengeful nature. [Data: Relationships (16, 17)]"\n    },\n    {\n      "summary": "The Queen\'s disguise as a farmer\'s wife",\n      "explanation": "The Queen disguises herself as a farmer\'s wife in order to trick Snow White into eating the poisoned apple. This is a clever and deceitful tactic, and it highlights the Queen\'s cunning and manipulative nature. [Data: Relationships (15)]"\n    },\n    {\n      "summary": "The Huntsman\'s role in the community",\n      "explanation": "The Huntsman is a key entity in the community, and he plays a significant role in the narrative. He is tasked by the Queen to kill Snow White, but he chooses to spare her life instead. This decision is likely motivated by a change of heart or a sense of compassion for Snow White. [Data: Relationships (10, 23, 1)]"\n    },\n    {\n      "summary": "Snow White\'s relationship with the Queen",\n      "explanation": "Snow White\'s relationship with the Queen is complex and tumultuous. The Queen is driven by jealousy of Snow White\'s beauty, and she attempts to kill Snow White on multiple occasions. Snow White, on the other hand, is innocent and kind, and she is unaware of the Queen\'s true intentions. [Data: Relationships (11, 0, 12)]"\n    },\n    {\n      "summary": "The role of the Looking Glass",\n      "explanation": "The Looking Glass is a magical object that serves as a truth-telling device. It is used by the Queen to determine who is the fairest of all, and it reveals that Snow White possesses greater beauty than the Queen. This revelation sparks the Queen\'s jealousy and motivates her to attempt to kill Snow White. [Data: Relationships (13, 20, 6)]"\n    },\n    {\n      "summary": "The Queen\'s relationship with the Huntsman",\n      "explanation": "The Queen\'s relationship with the Huntsman is significant, as she orders him to kill Snow White but he chooses to spare her life instead. This decision is likely motivated by a change of heart or a sense of compassion for Snow White. [Data: Relationships (10, 23, 1)]"\n    },\n    {\n      "summary": "The Queen\'s relationship with the Seven Dwarfs",\n      "explanation": "The Queen\'s relationship with the Seven Dwarfs is complex, as she is let into their house unbeknownst to them. However, the Seven Dwarfs have a suspicion that the Queen is trying to harm Snow White, suggesting a potential motive behind her actions. [Data: Relationships (12)]"\n    },\n    {\n      "summary": "The Queen\'s relationship with the Glass",\n      "explanation": "The Queen\'s relationship with the Glass is significant, as it tells her that Snow White is the fairest of them all. This revelation sparks the Queen\'s jealousy and motivates her to attempt to kill Snow White. [Data: Relationships (18)]"\n    }'}}
+15:51:09,51 graphrag.index.reporting.file_workflow_callbacks INFO Community Report Extraction Error details=None
+15:51:09,51 graphrag.index.verbs.graph.report.strategies.graph_intelligence.run_graph_intelligence WARNING No report found for community: 1
+15:51:10,128 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+15:51:10,140 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 3.501596156042069. input_tokens=3038, output_tokens=973
+15:51:10,142 datashaper.workflow.workflow INFO executing verb window
+15:51:10,147 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+15:51:10,320 graphrag.index.run INFO Running workflow: create_final_text_units...
+15:51:10,321 graphrag.index.run INFO dependencies for create_final_text_units: ['create_base_text_units', 'join_text_units_to_relationship_ids', 'join_text_units_to_entity_ids']
+15:51:10,321 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+15:51:10,326 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+15:51:10,329 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+15:51:10,333 datashaper.workflow.workflow INFO executing verb select
+15:51:10,334 datashaper.workflow.workflow INFO executing verb rename
+15:51:10,335 datashaper.workflow.workflow INFO executing verb join
+15:51:10,342 datashaper.workflow.workflow INFO executing verb join
+15:51:10,350 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:10,360 datashaper.workflow.workflow INFO executing verb select
+15:51:10,362 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+15:51:10,526 graphrag.index.run INFO Running workflow: create_base_documents...
+15:51:10,527 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+15:51:10,528 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+15:51:10,534 datashaper.workflow.workflow INFO executing verb unroll
+15:51:10,537 datashaper.workflow.workflow INFO executing verb select
+15:51:10,538 datashaper.workflow.workflow INFO executing verb rename
+15:51:10,538 datashaper.workflow.workflow INFO executing verb join
+15:51:10,546 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:51:10,548 datashaper.workflow.workflow INFO executing verb join
+15:51:10,558 datashaper.workflow.workflow INFO executing verb rename
+15:51:10,559 datashaper.workflow.workflow INFO executing verb convert
+15:51:10,561 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+15:51:10,733 graphrag.index.run INFO Running workflow: create_final_documents...
+15:51:10,734 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+15:51:10,735 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+15:51:10,742 datashaper.workflow.workflow INFO executing verb rename
+15:51:10,745 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+15:51:10,806 graphrag.index.cli INFO All workflows completed successfully.

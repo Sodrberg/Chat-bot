@@ -1,0 +1,606 @@
+12:49:45,923 graphrag.index.cli INFO Logging enabled at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240918-124945/reports/indexing-engine.log
+12:49:45,926 graphrag.index.cli INFO Starting pipeline run for: 20240918-124945, dryrun=False
+12:49:45,927 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "llama-3.1-8b-instant",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://api.groq.com/openai/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 20000,
+        "requests_per_minute": 30,
+        "max_retries": 3,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag",
+    "reporting": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240918-124945/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240918-124945/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 1000,
+        "max_input_length": 4000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+12:49:45,932 graphrag.index.create_pipeline_config INFO skipping workflows 
+12:49:45,932 graphrag.index.run.run INFO Running pipeline
+12:49:45,932 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240918-124945/artifacts
+12:49:45,933 graphrag.index.input.load_input INFO loading input from root_dir=input
+12:49:45,933 graphrag.index.input.load_input INFO using file storage for input
+12:49:45,933 graphrag.index.storage.file_pipeline_storage INFO search /Users/linussoderberg/chatbot/server/graphrag_rag/input for files matching .*\.txt$
+12:49:45,933 graphrag.index.input.text INFO found text files from input, found [('frankenstein-short.txt', {})]
+12:49:45,936 graphrag.index.input.text INFO Found 1 files, loading 1
+12:49:45,942 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+12:49:45,942 graphrag.index.run.run INFO Final # of rows loaded: 1
+12:49:46,93 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+12:49:46,93 datashaper.workflow.workflow INFO executing verb orderby
+12:49:46,101 datashaper.workflow.workflow INFO executing verb zip
+12:49:46,105 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:49:46,120 datashaper.workflow.workflow INFO executing verb chunk
+12:49:46,451 datashaper.workflow.workflow INFO executing verb select
+12:49:46,454 datashaper.workflow.workflow INFO executing verb unroll
+12:49:46,462 datashaper.workflow.workflow INFO executing verb rename
+12:49:46,463 datashaper.workflow.workflow INFO executing verb genid
+12:49:46,464 datashaper.workflow.workflow INFO executing verb unzip
+12:49:46,466 datashaper.workflow.workflow INFO executing verb copy
+12:49:46,467 datashaper.workflow.workflow INFO executing verb filter
+12:49:46,485 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+12:49:46,694 graphrag.index.run.workflow INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+12:49:46,695 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+12:49:46,740 datashaper.workflow.workflow INFO executing verb entity_extract
+12:49:46,744 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=https://api.groq.com/openai/v1
+12:49:46,777 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for llama-3.1-8b-instant: TPM=20000, RPM=30
+12:49:46,777 graphrag.index.llm.load_llm INFO create concurrency limiter for llama-3.1-8b-instant: 25
+12:49:53,328 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:49:53,342 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.55022385600023. input_tokens=2710, output_tokens=4000
+12:50:01,102 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:01,120 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 7.763279636041261. input_tokens=34, output_tokens=4000
+12:50:01,128 datashaper.workflow.workflow INFO executing verb merge_graphs
+12:50:01,150 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+12:50:01,349 graphrag.index.run.workflow INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+12:50:01,350 graphrag.utils.storage INFO read table from storage: create_base_extracted_entities.parquet
+12:50:01,356 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+12:50:01,979 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:01,980 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:01,981 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:01,982 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:01,983 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5617088329745457. input_tokens=155, output_tokens=38
+12:50:01,984 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5235489358892664. input_tokens=150, output_tokens=48
+12:50:01,985 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5566325390245765. input_tokens=179, output_tokens=49
+12:50:01,986 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5074216900393367. input_tokens=163, output_tokens=15
+12:50:02,4 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,111 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,112 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,113 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,114 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,149 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,187 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,208 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,220 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,282 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,283 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,317 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,334 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,404 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,408 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,636 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,637 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,638 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,645 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,646 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:02,647 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:04,257 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+12:50:04,274 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: ["CASHION", "AURELIA"]\nDescription List: ["Aurelia is the country where Cashion is the capital", "Cashion is the capital city of Aurelia"]\n#######\nOutput:\n'}
+12:50:04,275 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+12:50:05,849 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:08,13 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:10,32 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:12,76 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:13,547 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5708369860658422. input_tokens=205, output_tokens=31
+12:50:15,922 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:17,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6610924679553136. input_tokens=157, output_tokens=16
+12:50:19,559 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6472515100613236. input_tokens=147, output_tokens=12
+12:50:21,561 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6360628720140085. input_tokens=161, output_tokens=14
+12:50:23,563 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6303492550505325. input_tokens=195, output_tokens=87
+12:50:25,564 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6599612060235813. input_tokens=163, output_tokens=18
+12:50:27,566 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7576717420015484. input_tokens=197, output_tokens=98
+12:50:29,575 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7700267330510542. input_tokens=145, output_tokens=16
+12:50:31,577 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7717573259724304. input_tokens=165, output_tokens=73
+12:50:33,580 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8376903919270262. input_tokens=146, output_tokens=61
+12:50:35,581 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8215641269925982. input_tokens=152, output_tokens=30
+12:50:37,585 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8226893529063091. input_tokens=145, output_tokens=21
+12:50:39,587 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8614595970138907. input_tokens=171, output_tokens=36
+12:50:41,589 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9350135859567672. input_tokens=142, output_tokens=30
+12:50:43,591 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9728876469889656. input_tokens=181, output_tokens=43
+12:50:45,593 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1832300890237093. input_tokens=152, output_tokens=59
+12:50:47,596 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1481872010044754. input_tokens=161, output_tokens=17
+12:50:49,602 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.2003995719132945. input_tokens=156, output_tokens=73
+12:50:51,604 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1637385350186378. input_tokens=157, output_tokens=36
+12:50:53,607 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1881441060686484. input_tokens=156, output_tokens=219
+12:50:55,609 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.2289867730578408. input_tokens=150, output_tokens=92
+12:50:57,611 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 1 retries took 0.34038699499797076. input_tokens=152, output_tokens=29
+12:50:59,612 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.48921793699264526. input_tokens=180, output_tokens=174
+12:51:01,614 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.500635631964542. input_tokens=189, output_tokens=95
+12:51:03,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5358061150182039. input_tokens=182, output_tokens=94
+12:51:05,617 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.37965504301246256. input_tokens=155, output_tokens=41
+12:51:05,632 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+12:51:05,826 graphrag.index.run.workflow INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+12:51:05,827 graphrag.utils.storage INFO read table from storage: create_summarized_entities.parquet
+12:51:05,833 datashaper.workflow.workflow INFO executing verb cluster_graph
+12:51:05,921 datashaper.workflow.workflow INFO executing verb select
+12:51:05,924 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+12:51:06,119 graphrag.index.run.workflow INFO dependencies for create_final_entities: ['create_base_entity_graph']
+12:51:06,120 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+12:51:06,128 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:06,159 datashaper.workflow.workflow INFO executing verb rename
+12:51:06,159 datashaper.workflow.workflow INFO executing verb select
+12:51:06,161 datashaper.workflow.workflow INFO executing verb dedupe
+12:51:06,164 datashaper.workflow.workflow INFO executing verb rename
+12:51:06,165 datashaper.workflow.workflow INFO executing verb filter
+12:51:06,170 datashaper.workflow.workflow INFO executing verb text_split
+12:51:06,174 datashaper.workflow.workflow INFO executing verb drop
+12:51:06,175 datashaper.workflow.workflow INFO executing verb merge
+12:51:06,208 datashaper.workflow.workflow INFO executing verb text_embed
+12:51:06,210 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=None
+12:51:06,228 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for text-embedding-3-small: TPM=0, RPM=0
+12:51:06,228 graphrag.index.llm.load_llm INFO create concurrency limiter for text-embedding-3-small: 25
+12:51:06,238 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 129 inputs via 129 snippets using 9 batches. max_batch_size=16, max_tokens=8191
+12:51:06,630 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,631 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,633 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,634 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.38518464809749275. input_tokens=14, output_tokens=0
+12:51:06,636 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,638 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,640 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,642 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:51:06,723 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.4747844609664753. input_tokens=280, output_tokens=0
+12:51:06,895 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6519633050775155. input_tokens=747, output_tokens=0
+12:51:06,996 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7553093050373718. input_tokens=520, output_tokens=0
+12:51:07,19 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7724241240648553. input_tokens=422, output_tokens=0
+12:51:07,41 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7960819260915741. input_tokens=457, output_tokens=0
+12:51:07,126 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.8814002060098574. input_tokens=406, output_tokens=0
+12:51:07,148 datashaper.workflow.workflow INFO executing verb drop
+12:51:07,149 datashaper.workflow.workflow INFO executing verb filter
+12:51:07,155 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+12:51:07,420 graphrag.index.run.workflow INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+12:51:07,421 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+12:51:07,428 datashaper.workflow.workflow INFO executing verb layout_graph
+12:51:07,578 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:07,602 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:07,624 datashaper.workflow.workflow INFO executing verb drop
+12:51:07,624 datashaper.workflow.workflow INFO executing verb filter
+12:51:07,634 datashaper.workflow.workflow INFO executing verb select
+12:51:07,635 datashaper.workflow.workflow INFO executing verb rename
+12:51:07,636 datashaper.workflow.workflow INFO executing verb join
+12:51:07,653 datashaper.workflow.workflow INFO executing verb convert
+12:51:07,664 datashaper.workflow.workflow INFO executing verb rename
+12:51:07,667 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+12:51:07,849 graphrag.index.run.workflow INFO dependencies for create_final_communities: ['create_base_entity_graph']
+12:51:07,849 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+12:51:07,854 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:07,877 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:07,899 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:51:07,910 datashaper.workflow.workflow INFO executing verb join
+12:51:07,922 datashaper.workflow.workflow INFO executing verb join
+12:51:07,930 datashaper.workflow.workflow INFO executing verb concat
+12:51:07,930 datashaper.workflow.workflow INFO executing verb filter
+12:51:07,977 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:51:07,982 datashaper.workflow.workflow INFO executing verb join
+12:51:07,988 datashaper.workflow.workflow INFO executing verb filter
+12:51:07,994 datashaper.workflow.workflow INFO executing verb fill
+12:51:07,994 datashaper.workflow.workflow INFO executing verb merge
+12:51:07,999 datashaper.workflow.workflow INFO executing verb copy
+12:51:07,999 datashaper.workflow.workflow INFO executing verb select
+12:51:08,1 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+12:51:08,206 graphrag.index.run.workflow INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+12:51:08,207 graphrag.utils.storage INFO read table from storage: create_final_entities.parquet
+12:51:08,231 datashaper.workflow.workflow INFO executing verb select
+12:51:08,233 datashaper.workflow.workflow INFO executing verb unroll
+12:51:08,235 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:51:08,240 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+12:51:08,440 graphrag.index.run.workflow INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+12:51:08,441 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+12:51:08,447 graphrag.utils.storage INFO read table from storage: create_final_nodes.parquet
+12:51:08,459 datashaper.workflow.workflow INFO executing verb unpack_graph
+12:51:08,484 datashaper.workflow.workflow INFO executing verb filter
+12:51:08,493 datashaper.workflow.workflow INFO executing verb rename
+12:51:08,494 datashaper.workflow.workflow INFO executing verb filter
+12:51:08,502 datashaper.workflow.workflow INFO executing verb drop
+12:51:08,504 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+12:51:08,511 datashaper.workflow.workflow INFO executing verb convert
+12:51:08,512 datashaper.workflow.workflow INFO executing verb convert
+12:51:08,514 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+12:51:08,726 graphrag.index.run.workflow INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+12:51:08,726 graphrag.utils.storage INFO read table from storage: create_final_relationships.parquet
+12:51:08,735 datashaper.workflow.workflow INFO executing verb select
+12:51:08,736 datashaper.workflow.workflow INFO executing verb unroll
+12:51:08,740 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:51:08,744 datashaper.workflow.workflow INFO executing verb select
+12:51:08,753 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+12:51:08,953 graphrag.index.run.workflow INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_nodes']
+12:51:08,954 graphrag.utils.storage INFO read table from storage: create_final_relationships.parquet
+12:51:08,962 graphrag.utils.storage INFO read table from storage: create_final_nodes.parquet
+12:51:08,970 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+12:51:08,979 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+12:51:08,983 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+12:51:08,990 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+12:51:08,990 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=2 => 129
+12:51:09,25 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 129
+12:51:09,59 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 129
+12:51:09,103 datashaper.workflow.workflow INFO executing verb create_community_reports
+12:51:10,916 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:11,82 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:12,920 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.795821952051483. input_tokens=2943, output_tokens=606
+12:51:14,923 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.969911308027804. input_tokens=2527, output_tokens=733
+12:51:19,430 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+12:51:19,433 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an AI assistant that helps a human analyst to perform general information discovery. Information discovery is the process of identifying and assessing relevant information associated with certain entities (e.g., organizations and individuals) within a network.\n\n# Goal\nWrite a comprehensive report of a community, given a list of entities that belong to the community as well as their relationships and optional associated claims. The report will be used to inform decision-makers about information associated with the community and their potential impact. The content of this report includes an overview of the community\'s key entities, their legal compliance, technical capabilities, reputation, and noteworthy claims.\n\n# Report Structure\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\n\n# Example Input\n-----------\nText:\n\nEntities\n\nid,entity,description\n5,VERDANT OASIS PLAZA,Verdant Oasis Plaza is the location of the Unity March\n6,HARMONY ASSEMBLY,Harmony Assembly is an organization that is holding a march at Verdant Oasis Plaza\n\nRelationships\n\nid,source,target,description\n37,VERDANT OASIS PLAZA,UNITY MARCH,Verdant Oasis Plaza is the location of the Unity March\n38,VERDANT OASIS PLAZA,HARMONY ASSEMBLY,Harmony Assembly is holding a march at Verdant Oasis Plaza\n39,VERDANT OASIS PLAZA,UNITY MARCH,The Unity March is taking place at Verdant Oasis Plaza\n40,VERDANT OASIS PLAZA,TRIBUNE SPOTLIGHT,Tribune Spotlight is reporting on the Unity march taking place at Verdant Oasis Plaza\n41,VERDANT OASIS PLAZA,BAILEY ASADI,Bailey Asadi is speaking at Verdant Oasis Plaza about the march\n43,HARMONY ASSEMBLY,UNITY MARCH,Harmony Assembly is organizing the Unity March\n\nOutput:\n{{\n    "title": "Verdant Oasis Plaza and Unity March",\n    "summary": "The community revolves around the Verdant Oasis Plaza, which is the location of the Unity March. The plaza has relationships with the Harmony Assembly, Unity March, and Tribune Spotlight, all of which are associated with the march event.",\n    "rating": 5.0,\n    "rating_explanation": "The impact severity rating is moderate due to the potential for unrest or conflict during the Unity March.",\n    "findings": [\n        {{\n            "summary": "Verdant Oasis Plaza as the central location",\n            "explanation": "Verdant Oasis Plaza is the central entity in this community, serving as the location for the Unity March. This plaza is the common link between all other entities, suggesting its significance in the community. The plaza\'s association with the march could potentially lead to issues such as public disorder or conflict, depending on the nature of the march and the reactions it provokes. [Data: Entities (5), Relationships (37, 38, 39, 40, 41,+more)]"\n        }},\n        {{\n            "summary": "Harmony Assembly\'s role in the community",\n            "explanation": "Harmony Assembly is another key entity in this community, being the organizer of the march at Verdant Oasis Plaza. The nature of Harmony Assembly and its march could be a potential source of threat, depending on their objectives and the reactions they provoke. The relationship between Harmony Assembly and the plaza is crucial in understanding the dynamics of this community. [Data: Entities(6), Relationships (38, 43)]"\n        }},\n        {{\n            "summary": "Unity March as a significant event",\n            "explanation": "The Unity March is a significant event taking place at Verdant Oasis Plaza. This event is a key factor in the community\'s dynamics and could be a potential source of threat, depending on the nature of the march and the reactions it provokes. The relationship between the march and the plaza is crucial in understanding the dynamics of this community. [Data: Relationships (39)]"\n        }},\n        {{\n            "summary": "Role of Tribune Spotlight",\n            "explanation": "Tribune Spotlight is reporting on the Unity March taking place in Verdant Oasis Plaza. This suggests that the event has attracted media attention, which could amplify its impact on the community. The role of Tribune Spotlight could be significant in shaping public perception of the event and the entities involved. [Data: Relationships (40)]"\n        }}\n    ]\n}}\n\n\n# Real Data\n\nUse the following text for your answer. Do not make anything up in your answer.\n\nText:\n-----Entities-----\nhuman_readable_id,title,description,degree\n8,MARGARET,"Based on the provided data, here is a comprehensive summary of Margaret:\n\nMargaret is the person to whom the captain is writing, and she is also the narrator\'s sister or close friend.",18\n66,OCEAN,The ocean is a vast body of water that the narrator is about to explore.,4\n120,BROTHER,A brother is a person who is close to the narrator and the stranger,3\n115,DECK,The deck is the area on the ship where the narrator and the stranger often go,3\n117,ELEMENTAL FOES,The elemental foes are a metaphorical concept that the narrator refers to,3\n116,HEAVEN,Heaven is a metaphorical place that the narrator and the stranger refer to,3\n125,NARRATOR,The narrator is the person writing the journal,14\n121,NATURE,"The entity ""NATURE"" can be described as the world around the narrator and the stranger, encompassing a natural environment where the story is set.",3\n118,RACE,The race is a metaphorical concept that the narrator refers to,3\n124,SEA,The sea is a body of water that the ship is on,3\n123,SKY,The sky is the atmosphere around the Earth,3\n122,STAR,The star is a celestial object that the narrator and the stranger refer to,3\n119,WORLD,The world is the planet that the narrator and the stranger are on,3\n\n\n-----Relationships-----\nhuman_readable_id,source,target,description,rank\n19,MARGARET,STRANGER,The stranger is a friend of the narrator\'s sister or friend,38\n8,MARY WOLLSTONECRAFT SHELLEY,MARGARET,Margaret is the narrator\'s sister and the recipient of the letter,28\n20,MARGARET,SHIP,Margaret is the narrator\'s sister or friend who is on the ship,27\n17,MARGARET,R. WALTON,Margaret is R. Walton\'s sister and only friendR. Walton\'s sister Margaret is his only friend,26\n28,MARGARET,FRIEND,Margaret is a friend of the narrator,24\n57,OCEAN,STRANGER,The stranger is on the ocean with the narrator,24\n111,STRANGER,BROTHER,The stranger is a brother to the narrator,23\n106,STRANGER,DECK,The stranger often goes to the deck of the ship,23\n108,STRANGER,ELEMENTAL FOES,The stranger refers to the elemental foes as a metaphorical concept,23\n107,STRANGER,HEAVEN,The stranger refers to heaven as a metaphorical place,23\n67,SHIP,NARRATOR,The narrator is on the ship with the stranger,23\n112,STRANGER,NATURE,The stranger refers to nature as the world around them,23\n109,STRANGER,RACE,The stranger refers to the race as a metaphorical concept,23\n115,STRANGER,SEA,The stranger is on the sea with the narrator,23\n114,STRANGER,SKY,The stranger refers to the sky as the atmosphere around the Earth,23\n113,STRANGER,STAR,The stranger refers to the star as a celestial object,23\n110,STRANGER,WORLD,The stranger is on the world with the narrator,23\n18,MARGARET,CAPTAIN,The captain is writing to Margaret,22\n22,MARGARET,SLICHE,"Margaret is not watching for the sledge, but the narrator and the stranger are",22\n23,MARGARET,OCEAN,Margaret is on the ocean with the narrator and the stranger,22\n29,MARGARET,BROTHER,"Margaret is not a brother to the narrator, but the stranger is",21\n21,MARGARET,DECK,"Margaret is not on the deck, but the narrator and the stranger are",21\n25,MARGARET,ELEMENTAL FOES,"Margaret is not referred to as being affected by the elemental foes, but the narrator and the stranger are",21\n24,MARGARET,HEAVEN,"Margaret is not referred to as being in heaven, but the narrator and the stranger are",21\n26,MARGARET,RACE,"Margaret is not referred to as being part of the race, but the narrator and the stranger are",21\n27,MARGARET,WORLD,Margaret is on the world with the narrator and the stranger,21\n30,MARGARET,NATURE,"Margaret is not referred to as being affected by nature, but the narrator and the stranger are",21\n31,MARGARET,STAR,"Margaret is not referred to as being affected by the star, but the narrator and the stranger are",21\n32,MARGARET,SKY,"Margaret is not referred to as being affected by the sky, but the narrator and the stranger are",21\n33,MARGARET,SEA,Margaret is on the sea with the narrator and the stranger,21\n74,FRIEND,NARRATOR,The narrator is a friend of the stranger,20\n58,OCEAN,NARRATOR,The narrator is on the ocean with the stranger,18\n99,SLICHE,NARRATOR,The narrator is watching for the sledge,18\n121,BROTHER,NARRATOR,The narrator is a brother to the stranger,17\n116,DECK,NARRATOR,The narrator often goes to the deck of the ship,17\n118,ELEMENTAL FOES,NARRATOR,The narrator refers to the elemental foes as a metaphorical concept,17\n117,HEAVEN,NARRATOR,The narrator refers to heaven as a metaphorical place,17\n119,RACE,NARRATOR,The narrator refers to the race as a metaphorical concept,17\n120,WORLD,NARRATOR,The narrator is on the world with the stranger,17\n122,NATURE,NARRATOR,The narrator refers to nature as the world around them,17\n123,STAR,NARRATOR,The narrator refers to the star as a celestial object,17\n124,SKY,NARRATOR,The narrator refers to the sky as the atmosphere around the Earth,17\n125,SEA,NARRATOR,The narrator is on the sea with the stranger,17\n44,ARCHANGEL,OCEAN,The narrator is going to explore the ocean from Archangel,7\n\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\nOutput:'}
+12:51:19,433 graphrag.index.graph.extractors.community_reports.community_reports_extractor ERROR error generating community report
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/community_reports/community_reports_extractor.py", line 58, in __call__
+    await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 48, in __call__
+    return await self._invoke_json(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 80, in _invoke_json
+    result = await generate()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 72, in generate
+    await self._native_json(input, **{**kwargs, "name": call_name})
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 96, in _native_json
+    result = await self._invoke(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': '{\n  "title": "Margaret and the Ocean",\n  "summary": "The community revolves around Margaret, who is the narrator\'s sister or close friend, and the ocean, which is a vast body of water that the narrator is about to explore. The ocean has relationships with Margaret, the narrator, and the stranger, all of which are associated with the exploration event.",\n  "rating": 4.0,\n  "rating_explanation": "The impact severity rating is moderate due to the potential for adventure or exploration during the ocean expedition.",\n  "findings": [\n    {\n      "summary": "Margaret as the central figure",\n      "explanation": "Margaret is the central entity in this community, being the narrator\'s sister or close friend. This relationship is crucial in understanding the dynamics of this community. Margaret\'s association with the narrator and the ocean could potentially lead to issues such as navigation or communication problems, depending on the nature of the expedition and the reactions they provoke. [Data: Entities (8), Relationships (19, 8, 20, 17, 28)]"\n    },\n    {\n      "summary": "The ocean as a significant entity",\n      "explanation": "The ocean is another key entity in this community, being a vast body of water that the narrator is about to explore. The nature of the ocean and its relationship with Margaret and the narrator could be a potential source of threat, depending on their objectives and the reactions they provoke. The relationship between the ocean and Margaret is crucial in understanding the dynamics of this community. [Data: Entities (66), Relationships (57, 58, 44)]"\n    },\n    {\n      "summary": "The narrator\'s role in the community",\n      "explanation": "The narrator is a key entity in this community, being the person writing the journal. The narrator\'s relationship with Margaret and the ocean is crucial in understanding the dynamics of this community. The narrator\'s association with the ocean could potentially lead to issues such as navigation or communication problems, depending on the nature of the expedition and the reactions they provoke. [Data: Entities (125), Relationships (67, 74, 99, 121, 116)]"\n    },\n    {\n      "summary": "The stranger\'s role in the community",\n      "explanation": "The stranger is a key entity in this community, being a friend of the narrator. The stranger\'s relationship with Margaret and the ocean is crucial in understanding the dynamics of this community. The stranger\'s association with the ocean could potentially lead to issues such as navigation or communication problems, depending on the nature of the expedition and the reactions they provoke. [Data: Entities (120), Relationships (111, 106, 108, 107, 109)]"\n    },\n    {\n      "summary": "The relationship between Margaret and the narrator",\n      "explanation": "The relationship between Margaret and the narrator is crucial in understanding the dynamics of this community. Margaret is the narrator\'s sister or close friend, and their relationship could potentially lead to issues such as communication problems or misunderstandings, depending on the nature of the expedition and the reactions they provoke. [Data: Relationships (19, 8, 20, 17, 28)]"\n    },\n    {\n      "summary": "The relationship between the ocean and the narrator",\n      "explanation": "The relationship between the ocean and the narrator is crucial in understanding the dynamics of this community. The narrator is on the ocean with the stranger, and their relationship could potentially lead to issues such as navigation or communication problems, depending on the nature of the expedition and the reactions they provoke. [Data: Relationships (57, 58, 44)]"\n    },\n    {\n      "summary": "The relationship between the ocean and the stranger",\n      "explanation": "The relationship between the ocean and the stranger is crucial in understanding the dynamics of this community. The stranger is on the ocean with the narrator, and their relationship could potentially lead to issues such as navigation or communication problems, depending on the nature of the expedition and the reactions they provoke. [Data: Relationships (57, 58, 44)]"\n    },\n    {\n      "summary": "The relationship between Margaret and the stranger",\n      "explanation": "The relationship between Margaret and the stranger is crucial in understanding the dynamics of this community. Margaret is the stranger\'s friend, and their relationship could potentially lead to issues such as communication problems or misunderstandings, depending on the nature of the expedition and the reactions they provoke. [Data: Relationships (19, 28)]"\n    }'}}
+12:51:19,451 graphrag.index.reporting.file_workflow_callbacks INFO Community Report Extraction Error details=None
+12:51:19,451 graphrag.index.verbs.graph.report.strategies.graph_intelligence.run_graph_intelligence WARNING No report found for community: 7
+12:51:20,799 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:20,801 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.8559852830367163. input_tokens=2254, output_tokens=510
+12:51:24,947 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:26,555 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:26,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.7468675109557807. input_tokens=2438, output_tokens=569
+12:51:28,563 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 2.145961264963262. input_tokens=2462, output_tokens=816
+12:51:32,487 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:32,490 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.9072434310801327. input_tokens=2567, output_tokens=608
+12:51:37,7 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:37,529 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:39,11 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 2.5174939249409363. input_tokens=3550, output_tokens=930
+12:51:41,54 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.8750686109997332. input_tokens=2352, output_tokens=507
+12:51:49,358 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:49,368 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 2.74623209098354. input_tokens=2522, output_tokens=725
+12:51:59,225 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:59,234 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 2.0743913690093905. input_tokens=2596, output_tokens=676
+12:52:08,858 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:52:08,865 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 1.7960661550750956. input_tokens=2564, output_tokens=690
+12:52:20,270 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+12:52:20,273 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 2.010876446031034. input_tokens=3131, output_tokens=707
+12:52:20,276 datashaper.workflow.workflow INFO executing verb window
+12:52:20,279 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+12:52:20,470 graphrag.index.run.workflow INFO dependencies for create_final_text_units: ['join_text_units_to_entity_ids', 'join_text_units_to_relationship_ids', 'create_base_text_units']
+12:52:20,471 graphrag.utils.storage INFO read table from storage: join_text_units_to_entity_ids.parquet
+12:52:20,475 graphrag.utils.storage INFO read table from storage: join_text_units_to_relationship_ids.parquet
+12:52:20,480 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+12:52:20,486 datashaper.workflow.workflow INFO executing verb select
+12:52:20,487 datashaper.workflow.workflow INFO executing verb rename
+12:52:20,488 datashaper.workflow.workflow INFO executing verb join
+12:52:20,497 datashaper.workflow.workflow INFO executing verb join
+12:52:20,510 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:52:20,514 datashaper.workflow.workflow INFO executing verb select
+12:52:20,517 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+12:52:20,724 graphrag.index.run.workflow INFO dependencies for create_base_documents: ['create_final_text_units']
+12:52:20,725 graphrag.utils.storage INFO read table from storage: create_final_text_units.parquet
+12:52:20,732 datashaper.workflow.workflow INFO executing verb unroll
+12:52:20,736 datashaper.workflow.workflow INFO executing verb select
+12:52:20,737 datashaper.workflow.workflow INFO executing verb rename
+12:52:20,738 datashaper.workflow.workflow INFO executing verb join
+12:52:20,747 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:52:20,750 datashaper.workflow.workflow INFO executing verb join
+12:52:20,766 datashaper.workflow.workflow INFO executing verb rename
+12:52:20,767 datashaper.workflow.workflow INFO executing verb convert
+12:52:20,773 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+12:52:20,985 graphrag.index.run.workflow INFO dependencies for create_final_documents: ['create_base_documents']
+12:52:20,986 graphrag.utils.storage INFO read table from storage: create_base_documents.parquet
+12:52:20,994 datashaper.workflow.workflow INFO executing verb rename
+12:52:20,998 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+12:52:21,62 graphrag.index.cli INFO All workflows completed successfully.

@@ -1,0 +1,606 @@
+17:00:47,922 graphrag.index.cli INFO Logging enabled at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-170047/reports/indexing-engine.log
+17:00:47,925 graphrag.index.cli INFO Starting pipeline run for: 20240916-170047, dryrun=False
+17:00:47,926 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "llama-3.1-8b-instant",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://api.groq.com/openai/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 20000,
+        "requests_per_minute": 30,
+        "max_retries": 3,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag",
+    "reporting": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-170047/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "/Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-170047/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 1000,
+        "max_input_length": 4000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "llama-3.1-8b-instant",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 20000,
+            "requests_per_minute": 30,
+            "max_retries": 3,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 5000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+17:00:47,930 graphrag.index.create_pipeline_config INFO skipping workflows 
+17:00:47,930 graphrag.index.run.run INFO Running pipeline
+17:00:47,930 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at /Users/linussoderberg/chatbot/server/graphrag_rag/output/20240916-170047/artifacts
+17:00:47,931 graphrag.index.input.load_input INFO loading input from root_dir=input
+17:00:47,931 graphrag.index.input.load_input INFO using file storage for input
+17:00:47,931 graphrag.index.storage.file_pipeline_storage INFO search /Users/linussoderberg/chatbot/server/graphrag_rag/input for files matching .*\.txt$
+17:00:47,932 graphrag.index.input.text INFO found text files from input, found [('frankenstein.txt', {})]
+17:00:47,935 graphrag.index.input.text INFO Found 1 files, loading 1
+17:00:47,937 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+17:00:47,938 graphrag.index.run.run INFO Final # of rows loaded: 1
+17:00:48,119 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+17:00:48,120 datashaper.workflow.workflow INFO executing verb orderby
+17:00:48,122 datashaper.workflow.workflow INFO executing verb zip
+17:00:48,124 datashaper.workflow.workflow INFO executing verb aggregate_override
+17:00:48,130 datashaper.workflow.workflow INFO executing verb chunk
+17:00:48,493 datashaper.workflow.workflow INFO executing verb select
+17:00:48,494 datashaper.workflow.workflow INFO executing verb unroll
+17:00:48,496 datashaper.workflow.workflow INFO executing verb rename
+17:00:48,497 datashaper.workflow.workflow INFO executing verb genid
+17:00:48,504 datashaper.workflow.workflow INFO executing verb unzip
+17:00:48,505 datashaper.workflow.workflow INFO executing verb copy
+17:00:48,506 datashaper.workflow.workflow INFO executing verb filter
+17:00:48,516 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+17:00:48,703 graphrag.index.run.workflow INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+17:00:48,703 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+17:00:48,714 datashaper.workflow.workflow INFO executing verb entity_extract
+17:00:48,731 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=https://api.groq.com/openai/v1
+17:00:48,766 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for llama-3.1-8b-instant: TPM=20000, RPM=30
+17:00:48,767 graphrag.index.llm.load_llm INFO create concurrency limiter for llama-3.1-8b-instant: 25
+17:00:52,588 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:52,594 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.5180439749965444. input_tokens=34, output_tokens=1438
+17:00:53,441 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:53,444 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.380313900997862. input_tokens=34, output_tokens=1256
+17:00:54,161 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:54,164 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.069160731043667. input_tokens=34, output_tokens=1107
+17:00:54,242 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:54,246 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.16448386607226. input_tokens=34, output_tokens=1970
+17:00:55,794 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:55,807 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 6.712873340002261. input_tokens=34, output_tokens=4000
+17:00:58,272 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+17:00:58,279 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 9.191218480002135. input_tokens=34, output_tokens=4004
+17:00:58,285 datashaper.workflow.workflow INFO executing verb merge_graphs
+17:00:58,483 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+17:00:58,690 graphrag.index.run.workflow INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+17:00:58,691 graphrag.utils.storage INFO read table from storage: create_base_extracted_entities.parquet
+17:00:58,700 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+17:00:59,207 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,208 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,209 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,211 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,222 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MARGARET"\nDescription List: ["Margaret is Victor Frankenstein\'s sister, who is anxiously awaiting his return", "Margaret is the narrator\'s friend who is listening to Frankenstein\'s story", "Margaret is the narrator\'s sister", "Margaret is the narrator\'s sister or friend", "Margaret is the person to whom Walton is reading the narrator\'s story", "Margaret is the person who the captain is writing to", "Margaret is the sister of Walton who is left behind"]\n#######\nOutput:\n'}
+17:00:59,222 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,223 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "LONDON"\nDescription List: ["London is a city in England where the narrator is from", "London is a city where Clerval is currently located", "London is a city where Frankenstein and Clerval plan to go"]\n#######\nOutput:\n'}
+17:00:59,223 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,224 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "POETS"\nDescription List: ["The narrator became acquainted with the celebrated poets of his own country", "The narrator became acquainted with the celebrated poets of their own country", "Victor mentions reading the poetry of Greece and Rome"]\n#######\nOutput:\n'}
+17:00:59,224 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,226 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "DURKE BATAGLANI"\nDescription List: ["", "Durke Bataglani is a 59-year-old journalist who was held hostage in Firuzabad", "Durke Bataglani is a character in the story who was held captive in Firuzabad", "Durke Bataglani is a character mentioned in the story", "Durke Bataglani is a character mentioned in the story, who is a journalist", "Durke Bataglani is a character who was held as a hostage in Firuzabad", "Durke Bataglani is a journalist and a hostage", "Durke Bataglani is a journalist who was held hostage", "Durke Bataglani is a person mentioned in the letter", "Durke Bataglani is a person mentioned in the text", "Durke Bataglani is a person who is mentioned in the context of Frankenstein", "Durke Bataglani is a person who was held hostage", "Durke Bataglani is a person who was held in Alhamia Prison", "Durke Bataglani is a person who was not mentioned in the text", "Durke Bataglani is an Aurelian journalist who was held hostage", "Durke Bataglani is an Aurelian journalist who was held hostageDurke Bataglani is an", "Durke Bataglani is the person who was held captive in Firuzabad", "Durke Bataglani was a 59-year-old journalist who was held hostage", "Durke Bataglani was an Aurelian journalist who was held hostage", "No information available"]\n#######\nOutput:\n'}
+17:00:59,226 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,320 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,322 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "CASHION"\nDescription List: ["Cashion is a city in the story", "Cashion is a city that is mentioned in the context of Frankenstein", "Cashion is a city that was not mentioned in the text", "Cashion is a location in the novel where the scientist\'s creation is kept", "Cashion is a location mentioned in the letter", "Cashion is a location mentioned in the story", "Cashion is a place mentioned in the text", "Cashion is the capital city in Aurelia", "Cashion is the capital city of Aurelia", "Cashion is the capital of Aurelia", "Cashion was the capital of Aurelia", "The Aurelians were welcomed by senior officials in Cashion", "The narrator mentions that the Aurelians are now on their way to Aurelia\'s capital, Cashion"]\n#######\nOutput:\n'}
+17:00:59,322 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,390 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,392 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "FRIEND"\nDescription List: ["A friend is a person who is close to the narrator and the stranger", "The friend is the one who is being mourned by the monster", "The friend is the one who was driven from Felix\'s door with contumely", "The narrator\'s friend is a noble fellow", "Victor Frankenstein and Elizabeth Lavenza as friends"]\n#######\nOutput:\n'}
+17:00:59,392 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,394 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,395 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,395 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,397 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ENGLAND"\nDescription List: ["Country where Victor Frankenstein plans to travel to", "Country where Walton is returning to", "England is Robert Walton\'s home country", "England is a country in Europe", "England is a great monarchy that surrounds Geneva", "England is the country where Victor Frankenstein\'s sister lives", "England is the destination of the crew\'s return journey", "The author and the monster lived in the heaths of England", "The narrator\'s lieutenant is an Englishman", "The narrator\'s sister Margaret lives in England"]\n#######\nOutput:\n'}
+17:00:59,397 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,398 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "UNIVERSITY"\nDescription List: ["The narrator is self-educated and never attended university", "The university is the narrator\'s destination", "The university is where Frankenstein studies and meets his professors", "University is a type of educational institution", "University where I procured great esteem and admiration for my discoveries"]\n#######\nOutput:\n'}
+17:00:59,399 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,400 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "AUGUST"\nDescription List: ["August is the month in which Robert Walton writes his second letter to Margaret Saville", "August is the month in which Victor goes on his journey to the Alpine valleys"]\n#######\nOutput:\n'}
+17:00:59,400 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,401 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,403 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ICE"\nDescription List: ["Ice is the obstacle that Victor Frankenstein and his companions are facing", "The ice is breaking and the fiend may be destroyed", "The ice is the barrier that the ship had to navigate through"]\n#######\nOutput:\n'}
+17:00:59,403 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,403 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,404 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,405 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,406 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MEGGIE TAZBAH"\nDescription List: ["", "Meggie Tazbah is a 53-year-old environmentalist who was held hostage in Firuzabad", "Meggie Tazbah is a Bratinas national and environmentalist who was held hostage", "Meggie Tazbah is a character in the story who was held captive in Firuzabad", "Meggie Tazbah is a character mentioned in the story", "Meggie Tazbah is a character mentioned in the story, who is an environmentalist", "Meggie Tazbah is a character who was held as a hostage in Firuzabad", "Meggie Tazbah is a person mentioned in the letter", "Meggie Tazbah is a person mentioned in the text", "Meggie Tazbah is a person who is mentioned in the context of Frankenstein", "Meggie Tazbah is a person who was held hostage", "Meggie Tazbah is a person who was held in Alhamia Prison", "Meggie Tazbah is a person who was not mentioned in the text", "Meggie Tazbah is an environmentalist and a hostage", "Meggie Tazbah is an environmentalist who was held hostage", "Meggie Tazbah is the person who was held captive in Firuzabad", "Meggie Tazbah was a 53-year-old environmentalist who was held hostage", "Meggie Tazbah was a Bratinas national and environmentalist who was held hostage", "No information available"]\n#######\nOutput:\n'}
+17:00:59,406 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,408 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SAMUEL NAMARA"\nDescription List: ["", "No information available", "Samuel Namara is a 39-year-old businessman who was held hostage in Firuzabad", "Samuel Namara is a businessman and a hostage", "Samuel Namara is a businessman who was held in Alhamia Prison", "Samuel Namara is a businessman who was held in Tiruzia\'s Alhamia Prison", "Samuel Namara is a character in the story who was held captive in Alhamia Prison", "Samuel Namara is a character mentioned in the story", "Samuel Namara is a character mentioned in the story, who is a businessman", "Samuel Namara is a character who was held as a prisoner in Tiruzia\'s Alhamia Prison", "Samuel Namara is a person mentioned in the letter", "Samuel Namara is a person mentioned in the text", "Samuel Namara is a person who is mentioned in the context of Frankenstein", "Samuel Namara is a person who was held hostage", "Samuel Namara is a person who was held in Alhamia Prison", "Samuel Namara is a person who was held in Alhamia prison", "Samuel Namara is a person who was not mentioned in the text", "Samuel Namara is an Aurelian businessman who was held in Alhamia Prison", "Samuel Namara is an Aurelian who spent time in Alhamia Prison", "Samuel Namara is an Aurelian who spent time in Tiruzia\'s Alhamia Prison", "Samuel Namara is the person who was held captive in Firuzabad", "Samuel Namara was a 39-year-old businessman who was held hostage", "Samuel Namara was a businessman who spent time in Tiruzia\'s Alhamia Prison", "Samuel Namara was an Aurelian who spent time in Tiruzia\'s Alhamia Prison"]\n#######\nOutput:\n'}
+17:00:59,408 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,409 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "BRATINAS"\nDescription List: ["Bratinas is a country that Meggie Tazbah holds nationality", "Bratinas is a country that was not mentioned in the text", "Bratinas is a country where Meggie Tazbah holds nationality", "Bratinas is a location in the novel where the scientist\'s creation is kept", "Bratinas is a location mentioned in the story", "Bratinas is a nationality mentioned in the letter", "Bratinas is a nationality mentioned in the story as being held by Meggie Tazbah", "Bratinas is a nationality of Meggie Tazbah", "Bratinas is a place mentioned in the text", "Meggie Tazbah held Bratinas nationality", "Meggie Tazbah holds Bratinas nationality"]\n#######\nOutput:\n'}
+17:00:59,409 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,410 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,411 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "OCEAN"\nDescription List: ["The narrator is going to explore the ocean", "The ocean is a vast body of waterThe ocean is the boundary of the horizon", "The ocean is the barrier between Victor Frankenstein and his fellow creatures", "The ocean is the body of water that the ship is on"]\n#######\nOutput:\n'}
+17:00:59,412 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,431 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,432 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,432 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,433 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,435 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "HOME"\nDescription List: ["Home is the place where the narrator\'s family lives", "The home of Victor Frankenstein\'s family", "The narrator spent his childhood on a common near his homeThe narrator\'s home was on a common where he spent his childhood", "The narrator\'s home is where he is leaving"]\n#######\nOutput:\n'}
+17:00:59,435 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,436 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ALHAMIA PRISON"\nDescription List: ["", "Alhamia Prison is a location in Tiruzia", "Alhamia Prison is a location in the story", "Alhamia Prison is a location mentioned in the letter", "Alhamia Prison is a location mentioned in the story", "Alhamia Prison is a location where Samuel Namara was held", "Alhamia Prison is a place that Samuel Namara was held in", "Alhamia Prison is a place that was not mentioned in the text", "Alhamia Prison is a place where Samuel Namara was held", "Alhamia Prison is a place where Samuel Namara was held captive", "Alhamia Prison is a prison in Tiruzia", "Alhamia Prison is a prison in TiruziaAlhamia Prison is a place mentioned in the text", "Alhamia Prison is a prison that is mentioned in the context of Frankenstein", "Alhamia Prison is the location where Justine was held", "Alhamia Prison is the location where the monster was being held", "Alhamia Prison was where Samuel Namara was held", "Alhamia prison is a place where Samuel Namara was held", "Alhamia prison is the place where the stranger was held captive", "I had been conversing with several persons in the island I had inhabited", "Samuel Namara was a prisoner at Alhamia prison", "The narrator spent time in Alhamia Prison", "The prison where Muhammadan was being held"]\n#######\nOutput:\n'}
+17:00:59,437 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,438 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "FIRUZABAD"\nDescription List: ["", "Firuzabad held Aurelians as hostages", "Firuzabad is a city in a country that held Aurelians as hostages", "Firuzabad is a city in the story", "Firuzabad is a city that is mentioned in the context of Frankenstein", "Firuzabad is a city where Aurelians were held hostage", "Firuzabad is a country", "Firuzabad is a country mentioned in the story", "Firuzabad is a country that held Aurelians as hostages", "Firuzabad is a country that is holding hostages", "Firuzabad is a country that was not mentioned in the text", "Firuzabad is a country where hostages were held", "Firuzabad is a location in the novel where the scientist\'s creation is kept", "Firuzabad is a location mentioned in the letter", "Firuzabad is a location mentioned in the story", "Firuzabad is a location where hostages were held", "Firuzabad is a location where the Aurelians were being held", "Firuzabad is a place mentioned in the text", "Firuzabad is a place where Durke Bataglani and Meggie Tazbah were held captive", "Firuzabad is a place where hostages were held", "Firuzabad is a place where the Aurelians were held", "Firuzabad is an organization that held hostages", "Firuzabad is the location where the hostages were being held", "Firuzabad is the place where the stranger was held captive"]\n#######\nOutput:\n'}
+17:00:59,438 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,440 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MASTER"\nDescription List: ["The master is the person in charge of the ship", "The master of the ship is a person of an excellent disposition"]\n#######\nOutput:\n'}
+17:00:59,440 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,440 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,442 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "AURELIA"\nDescription List: ["", "Aurelia is a country", "Aurelia is a country in the story", "Aurelia is a country mentioned in the story", "Aurelia is a country seeking to release hostages", "Aurelia is a country that is mentioned in the context of Frankenstein", "Aurelia is a country that is seeking to release hostages", "Aurelia is a country that sought to release hostages", "Aurelia is a country that was involved in the hostage exchange with Firuzabad", "Aurelia is a country that was not mentioned in the text", "Aurelia is a country where the Aurelians are from", "Aurelia is a location in the novel where the scientist\'s creation is kept", "Aurelia is a location mentioned in the letter", "Aurelia is a location mentioned in the story", "Aurelia is a place mentioned in the text", "Aurelia is an organization that is seeking to release hostages", "Aurelia is the country seeking to release hostages", "Aurelia is the country where the stranger is from", "Country seeking to release hostages"]\n#######\nOutput:\n'}
+17:00:59,442 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,443 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,443 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,445 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "QUINTARA"\nDescription List: ["", "Quintara brokered the hostage exchange between Firuzabad and Aurelia", "Quintara is a country", "Quintara is a country in the story", "Quintara is a country mentioned in the story", "Quintara is a country that brokered a hostage exchange", "Quintara is a country that brokered the hostage exchange", "Quintara is a country that brokered the hostage exchange between Firuzabad and Aurelia", "Quintara is a country that is involved in a hostage exchange with Firuzabad and Aurelia", "Quintara is a country that is mentioned in the context of Frankenstein", "Quintara is a country that negotiated a hostage exchange", "Quintara is a country that negotiated a swap of money in exchange for hostages", "Quintara is a country that was not mentioned in the text", "Quintara is a location mentioned in the letter", "Quintara is a location mentioned in the story", "Quintara is a place mentioned in the text", "Quintara is an organization in the novel where the scientist\'s creation is kept", "Quintara is an organization that brokered the hostage exchange", "Quintara is the country that negotiated a swap of money in exchange for hostages", "Quintara is the country where the stranger was rescued"]\n#######\nOutput:\n'}
+17:00:59,445 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,447 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SHIP"\nDescription List: ["Ship is the vessel that rescued the narrator", "The narrator is going to sail on a ship", "The ship is the vessel that rescued the stranger", "The ship is the vessel that the narrator and the stranger are on"]\n#######\nOutput:\n'}
+17:00:59,447 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:00:59,454 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:00:59,458 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "FRANKENSTEIN"\nDescription List: ["Frankenstein is a novel written by Mary Shelley, first published in 1818", "Frankenstein is a novel written by Mary Wollstonecraft Shelley", "Frankenstein is a person who has been referred to as modest", "Frankenstein is the captain of the vessel and a brave man who encourages his crew to be heroes", "Frankenstein is the creator of the monster and is being addressed by the monster", "Frankenstein is the creator of the monster and is being addressed by the monsterFrankenstein is the creator of the monster", "Frankenstein is the creator of the monster and the author of its existence and tormentsFrankenstein is the author of the monster\'s existence and torments", "Frankenstein is the creature created by Victor Frankenstein", "Frankenstein is the monster created by Victor Frankenstein", "Frankenstein is the narrator of the story", "Frankenstein is the narrator of the story and the creator of the monster", "Frankenstein is the narrator\'s enemy and the father of the child he kills", "Frankenstein is the narrator\'s father", "Frankenstein is the narrator\'s name and he is a person who is filled with remorse and horror for his actions", "Frankenstein is the novel in which the narrator\'s story takes place", "Frankenstein is the protagonist of the story who is a scientist and a monster", "Frankenstein is the scientist who created the monster", "Frankenstein\'s journey is an event that he is undertakingFrankenstein is the narrator of the story, a miserable wretch haunted by a curse", "The story of Victor Frankenstein\'s creation"]\n#######\nOutput:\n'}
+17:00:59,458 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:00,472 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:00,476 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "DURKE BATAGLANI"\nDescription List: ["", "Durke Bataglani is a 59-year-old journalist who was held hostage in Firuzabad", "Durke Bataglani is a character in the story who was held captive in Firuzabad", "Durke Bataglani is a character mentioned in the story", "Durke Bataglani is a character mentioned in the story, who is a journalist", "Durke Bataglani is a character who was held as a hostage in Firuzabad", "Durke Bataglani is a journalist and a hostage", "Durke Bataglani is a journalist who was held hostage", "Durke Bataglani is a person mentioned in the letter", "Durke Bataglani is a person mentioned in the text", "Durke Bataglani is a person who is mentioned in the context of Frankenstein", "Durke Bataglani is a person who was held hostage", "Durke Bataglani is a person who was held in Alhamia Prison", "Durke Bataglani is a person who was not mentioned in the text", "Durke Bataglani is an Aurelian journalist who was held hostage", "Durke Bataglani is an Aurelian journalist who was held hostageDurke Bataglani is an", "Durke Bataglani is the person who was held captive in Firuzabad", "Durke Bataglani was a 59-year-old journalist who was held hostage", "Durke Bataglani was an Aurelian journalist who was held hostage", "No information available"]\n#######\nOutput:\n'}
+17:01:00,476 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:01,371 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:01,374 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "OCEAN"\nDescription List: ["The narrator is going to explore the ocean", "The ocean is a vast body of waterThe ocean is the boundary of the horizon", "The ocean is the barrier between Victor Frankenstein and his fellow creatures", "The ocean is the body of water that the ship is on"]\n#######\nOutput:\n'}
+17:01:01,374 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:03,632 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:03,634 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "GROUND SEA"\nDescription List: ["Ground sea is a natural phenomenon that threatened the narrator\'s destruction", "The ground sea is the area where the ice broke and freed the ship", "The ground sea is threatening the narrator\'s destruction"]\n#######\nOutput:\n'}
+17:01:03,634 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:05,370 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:05,371 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SLICHE"\nDescription List: ["The sledge is a mysterious object that the narrator and the stranger are watching for", "The sledge is a vehicle used by the narrator", "The sliche is the vehicle that the stranger was in when he was rescued"]\n#######\nOutput:\n'}
+17:01:05,371 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:07,296 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:07,297 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SLICHE"\nDescription List: ["The sledge is a mysterious object that the narrator and the stranger are watching for", "The sledge is a vehicle used by the narrator", "The sliche is the vehicle that the stranger was in when he was rescued"]\n#######\nOutput:\n'}
+17:01:07,298 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:09,359 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:09,361 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "EUROPEAN"\nDescription List: ["The European is the stranger who was rescued by the ship", "The narrator is a European"]\n#######\nOutput:\n'}
+17:01:09,361 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:11,480 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:11,482 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "EUROPEAN"\nDescription List: ["The European is the stranger who was rescued by the ship", "The narrator is a European"]\n#######\nOutput:\n'}
+17:01:11,482 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:13,364 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:13,365 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "LONDON"\nDescription List: ["London is a city in England where the narrator is from", "London is a city where Clerval is currently located", "London is a city where Frankenstein and Clerval plan to go"]\n#######\nOutput:\n'}
+17:01:13,365 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:15,545 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:15,547 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MARGARET"\nDescription List: ["Margaret is Victor Frankenstein\'s sister, who is anxiously awaiting his return", "Margaret is the narrator\'s friend who is listening to Frankenstein\'s story", "Margaret is the narrator\'s sister", "Margaret is the narrator\'s sister or friend", "Margaret is the person to whom Walton is reading the narrator\'s story", "Margaret is the person who the captain is writing to", "Margaret is the sister of Walton who is left behind"]\n#######\nOutput:\n'}
+17:01:15,547 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:17,337 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:17,338 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "AURELIA"\nDescription List: ["", "Aurelia is a country", "Aurelia is a country in the story", "Aurelia is a country mentioned in the story", "Aurelia is a country seeking to release hostages", "Aurelia is a country that is mentioned in the context of Frankenstein", "Aurelia is a country that is seeking to release hostages", "Aurelia is a country that sought to release hostages", "Aurelia is a country that was involved in the hostage exchange with Firuzabad", "Aurelia is a country that was not mentioned in the text", "Aurelia is a country where the Aurelians are from", "Aurelia is a location in the novel where the scientist\'s creation is kept", "Aurelia is a location mentioned in the letter", "Aurelia is a location mentioned in the story", "Aurelia is a place mentioned in the text", "Aurelia is an organization that is seeking to release hostages", "Aurelia is the country seeking to release hostages", "Aurelia is the country where the stranger is from", "Country seeking to release hostages"]\n#######\nOutput:\n'}
+17:01:17,338 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:19,346 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:19,348 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ALHAMIA PRISON"\nDescription List: ["", "Alhamia Prison is a location in Tiruzia", "Alhamia Prison is a location in the story", "Alhamia Prison is a location mentioned in the letter", "Alhamia Prison is a location mentioned in the story", "Alhamia Prison is a location where Samuel Namara was held", "Alhamia Prison is a place that Samuel Namara was held in", "Alhamia Prison is a place that was not mentioned in the text", "Alhamia Prison is a place where Samuel Namara was held", "Alhamia Prison is a place where Samuel Namara was held captive", "Alhamia Prison is a prison in Tiruzia", "Alhamia Prison is a prison in TiruziaAlhamia Prison is a place mentioned in the text", "Alhamia Prison is a prison that is mentioned in the context of Frankenstein", "Alhamia Prison is the location where Justine was held", "Alhamia Prison is the location where the monster was being held", "Alhamia Prison was where Samuel Namara was held", "Alhamia prison is a place where Samuel Namara was held", "Alhamia prison is the place where the stranger was held captive", "I had been conversing with several persons in the island I had inhabited", "Samuel Namara was a prisoner at Alhamia prison", "The narrator spent time in Alhamia Prison", "The prison where Muhammadan was being held"]\n#######\nOutput:\n'}
+17:01:19,348 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:21,751 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:21,752 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "MASTER"\nDescription List: ["The master is the person in charge of the ship", "The master of the ship is a person of an excellent disposition"]\n#######\nOutput:\n'}
+17:01:21,752 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:23,424 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:23,426 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "QUINTARA"\nDescription List: ["", "Quintara brokered the hostage exchange between Firuzabad and Aurelia", "Quintara is a country", "Quintara is a country in the story", "Quintara is a country mentioned in the story", "Quintara is a country that brokered a hostage exchange", "Quintara is a country that brokered the hostage exchange", "Quintara is a country that brokered the hostage exchange between Firuzabad and Aurelia", "Quintara is a country that is involved in a hostage exchange with Firuzabad and Aurelia", "Quintara is a country that is mentioned in the context of Frankenstein", "Quintara is a country that negotiated a hostage exchange", "Quintara is a country that negotiated a swap of money in exchange for hostages", "Quintara is a country that was not mentioned in the text", "Quintara is a location mentioned in the letter", "Quintara is a location mentioned in the story", "Quintara is a place mentioned in the text", "Quintara is an organization in the novel where the scientist\'s creation is kept", "Quintara is an organization that brokered the hostage exchange", "Quintara is the country that negotiated a swap of money in exchange for hostages", "Quintara is the country where the stranger was rescued"]\n#######\nOutput:\n'}
+17:01:23,426 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:25,531 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:25,540 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "ICE"\nDescription List: ["Ice is the obstacle that Victor Frankenstein and his companions are facing", "The ice is breaking and the fiend may be destroyed", "The ice is the barrier that the ship had to navigate through"]\n#######\nOutput:\n'}
+17:01:25,540 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:27,431 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:27,438 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "SHIP"\nDescription List: ["Ship is the vessel that rescued the narrator", "The narrator is going to sail on a ship", "The ship is the vessel that rescued the stranger", "The ship is the vessel that the narrator and the stranger are on"]\n#######\nOutput:\n'}
+17:01:27,438 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:29,615 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:29,616 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "AUGUST"\nDescription List: ["August is the month in which Robert Walton writes his second letter to Margaret Saville", "August is the month in which Victor goes on his journey to the Alpine valleys"]\n#######\nOutput:\n'}
+17:01:29,616 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:31,475 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:31,477 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "POETS"\nDescription List: ["The narrator became acquainted with the celebrated poets of his own country", "The narrator became acquainted with the celebrated poets of their own country", "Victor mentions reading the poetry of Greece and Rome"]\n#######\nOutput:\n'}
+17:01:31,477 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:33,469 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:33,470 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "UNIVERSITY"\nDescription List: ["The narrator is self-educated and never attended university", "The university is the narrator\'s destination", "The university is where Frankenstein studies and meets his professors", "University is a type of educational institution", "University where I procured great esteem and admiration for my discoveries"]\n#######\nOutput:\n'}
+17:01:33,470 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 2/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:35,569 httpx INFO HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+17:01:35,571 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\n#######\n-Data-\nEntities: "OCEAN"\nDescription List: ["The narrator is going to explore the ocean", "The ocean is a vast body of waterThe ocean is the boundary of the horizon", "The ocean is the barrier between Victor Frankenstein and his fellow creatures", "The ocean is the body of water that the ship is on"]\n#######\nOutput:\n'}
+17:01:35,571 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 3/3 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+17:01:35,572 datashaper.workflow.workflow ERROR Error executing verb "summarize_descriptions" in create_summarized_entities: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 22665, Requested 232. Please try again in 8.692s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 415, in _execute_verb
+    result = await result
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 183, in summarize_descriptions
+    results = [
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 184, in <listcomp>
+    await get_resolved_entities(row, semaphore) for row in output.itertuples()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 147, in get_resolved_entities
+    results = await asyncio.gather(*futures)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 167, in do_summarize_descriptions
+    results = await strategy_exec(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 34, in run
+    return await run_summarize_descriptions(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 67, in run_summarize_descriptions
+    result = await extractor(items=items, descriptions=descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 73, in __call__
+    result = await self._summarize_descriptions(items, descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 110, in _summarize_descriptions
+    result = await self._summarize_descriptions_with_llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 129, in _summarize_descriptions_with_llm
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 22665, Requested 232. Please try again in 8.692s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+17:01:35,596 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "summarize_descriptions" in create_summarized_entities: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 22665, Requested 232. Please try again in 8.692s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}} details=None
+17:01:35,597 graphrag.index.run.run ERROR error running workflow create_summarized_entities
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/run/run.py", line 225, in run_pipeline
+    result = await _process_workflow(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/run/workflow.py", line 91, in _process_workflow
+    result = await workflow.run(context, callbacks)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/datashaper/workflow/workflow.py", line 415, in _execute_verb
+    result = await result
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 183, in summarize_descriptions
+    results = [
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 184, in <listcomp>
+    await get_resolved_entities(row, semaphore) for row in output.itertuples()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 147, in get_resolved_entities
+    results = await asyncio.gather(*futures)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/description_summarize.py", line 167, in do_summarize_descriptions
+    results = await strategy_exec(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 34, in run
+    return await run_summarize_descriptions(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/verbs/entities/summarize/strategies/graph_intelligence/run_graph_intelligence.py", line 67, in run_summarize_descriptions
+    result = await extractor(items=items, descriptions=descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 73, in __call__
+    result = await self._summarize_descriptions(items, descriptions)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 110, in _summarize_descriptions
+    result = await self._summarize_descriptions_with_llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/index/graph/extractors/summarize/description_summary_extractor.py", line 129, in _summarize_descriptions_with_llm
+    response = await self._llm(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/json_parsing_llm.py", line 34, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_token_replacing_llm.py", line 37, in __call__
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_history_tracking_llm.py", line 33, in __call__
+    output = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 151, in do_attempt
+    await sleep_for(sleep_time)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/base/base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/graphrag/llm/openai/openai_chat_llm.py", line 53, in _execute_llm
+    completion = await self.client.chat.completions.create(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1412, in create
+    return await self._post(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
+    return await self._request(
+  File "/opt/anaconda3/envs/chat_bot/lib/python3.10/site-packages/openai/_base_client.py", line 1611, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01j29qft5xeht85dfx2f6yzrfe` on tokens per minute (TPM): Limit 20000, Used 22665, Requested 232. Please try again in 8.692s. Visit https://console.groq.com/docs/rate-limits for more information.', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+17:01:35,599 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None
+17:01:35,696 graphrag.index.cli ERROR Errors occurred during the pipeline run, see logs for more details.
