@@ -1,1 +1,3 @@
 This app is a chat-bot interface whre to you uppload documents and use differents approaches to rag. Use GraphRAG for finding komplex relations in text and utilize it to gain insights. Use LLamaparse for a more traditional and lightweight approach for chating with your text documents. The third approach is my own experimentat PDF-search tool. Uppload you pdf and enter a query. The app will direct you to the page with the content relevant to your query.  
+![Screenshot 2024-10-16 at 20 06 43](https://github.com/user-attachments/assets/92d90bf6-05ab-4d98-979b-035ca6cb2d54)
+![chatbot1](https://github.com/user-attachments/assets/6a8df7ab-a68b-4304-a19c-40210811ad8c)
